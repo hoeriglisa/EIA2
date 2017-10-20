@@ -1,3 +1,10 @@
+/* Aufgabe: 1
+    Name: Lisa San Martin H�rig
+    Matrikel: 256060
+    Datum: 14.10.2017
+    Hiermit versichere ich, dass ich diesen
+    Code selbst geschrieben habe. Er wurde
+    nicht kopiert und auch nicht diktiert. */
 window.addEventListener("load", init);
 function init() {
     let canvas = document.getElementsByTagName("canvas")[0];
