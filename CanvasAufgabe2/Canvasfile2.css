@@ -1,0 +1,21 @@
+canvas{
+width: 100%;
+height: auto;
+}
+
+@media screen and (min-width: 571px) {
+
+canvas{
+width: 100%;
+height: auto;}
+}
+
+@media screen and (min-width: 1020px) {
+		width: 100%;
+		height: auto;
+	}
+	
+@media screen and (min-width: 1030px){
+	width: 100%;
+		height: auto;
+	}
