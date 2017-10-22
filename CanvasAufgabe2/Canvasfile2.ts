@@ -1,7 +1,7 @@
-/* Aufgabe: 1
+/* Aufgabe: 2
     Name: Lisa San Martin Hörig
     Matrikel: 256060
-    Datum: 14.10.2017
+    Datum: 20.10.2017
     Hiermit versichere ich, dass ich diesen
     Code selbst geschrieben habe. Er wurde
     nicht kopiert und auch nicht diktiert. */
