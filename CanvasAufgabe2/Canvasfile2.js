@@ -9,6 +9,9 @@ var canvasaufgabe2;
 (function (canvasaufgabe2) {
     window.addEventListener("load", init);
     let crc2;
+    var image;
+    let arrayX = [];
+    let arrayY = [];
     function init() {
         let canvas = document.getElementsByTagName("canvas")[0];
         console.log(canvas);
@@ -146,6 +149,11 @@ var canvasaufgabe2;
             var y = 500 * Math.random();
             drawSnow(x, y);
         }
+        for (let i = 0; i < 50; i++) {
+            arrayX[i] = 500;
+            arrayY[i] = 400;
+        }
+        image = crc2.getImageData(0, 0, 800, 600);
     }
     function drawTriangle(_x, _y) {
         crc2.beginPath();
@@ -166,6 +174,16 @@ var canvasaufgabe2;
         crc2.fill();
         crc2.strokeStyle = "#000000";
         crc2.stroke();
+    }
+    function animateSchnee() {
+        crc2.clearRect(0, 0, 800, 600);
+        for (let i; i < arrayX.length; i++) {
+            arrayX[i] += Math.random() * 4 - 2;
+            arrayY[i] += Math.random() * 4 - 2;
+            crc2.fillStyle = "#ffffff";
+            crc2.fillRect(arrayX[i], arrayY[i], 20, 20);
+        }
+        window.setTimeout(animateSchnee, 30);
     }
 })(canvasaufgabe2 || (canvasaufgabe2 = {}));
 //# sourceMappingURL=Canvasfile2.js.map

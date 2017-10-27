@@ -1,17 +1,21 @@
-/* Aufgabe: 2
+/* Aufgabe: 3
     Name: Lisa San Martin Hörig
     Matrikel: 256060
-    Datum: 20.10.2017
+    Datum: 27.10.2017
     Hiermit versichere ich, dass ich diesen
     Code selbst geschrieben habe. Er wurde
     nicht kopiert und auch nicht diktiert. */
 
-namespace canvasaufgabe2 {
+namespace canvasaufgabe3 {
     window.addEventListener("load", init);
     let crc2: CanvasRenderingContext2D;
     var image: ImageData;
     let arrayX: number[] = [];
     let arrayY: number[] = [];
+    let cloudmovingX: number[] = [];
+    let cloudmovingY: number[] = [];
+    let moveskifahrerX: number[] = [];
+    let moveskifahrerY: number[] = [];
 
     function init(): void {
         let canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0];
@@ -111,48 +115,9 @@ namespace canvasaufgabe2 {
         crc2.strokeStyle = "#f6ff00";
         crc2.stroke();
 
+        drawcloud(x, y);
         /**Wolke**/
-        crc2.beginPath();
-        crc2.arc(300, 50, 20, 0, 2 * Math.PI);
-        crc2.strokeStyle = "#ffffff";
-        crc2.stroke();
-        crc2.fillStyle = "#ffffff";
-        crc2.fill();
 
-        crc2.beginPath();
-        crc2.arc(290, 50, 20, 0, 2 * Math.PI);
-        crc2.strokeStyle = "#ffffff";
-        crc2.stroke();
-        crc2.fillStyle = "#ffffff";
-        crc2.fill();
-
-        crc2.beginPath();
-        crc2.arc(280, 55, 20, 0, 2 * Math.PI);
-        crc2.strokeStyle = "#ffffff";
-        crc2.stroke();
-        crc2.fillStyle = "#ffffff";
-        crc2.fill();
-
-        crc2.beginPath();
-        crc2.arc(290, 60, 20, 0, 2 * Math.PI);
-        crc2.strokeStyle = "#ffffff";
-        crc2.stroke();
-        crc2.fillStyle = "#ffffff";
-        crc2.fill();
-
-        crc2.beginPath();
-        crc2.arc(300, 60, 20, 0, 2 * Math.PI);
-        crc2.strokeStyle = "#ffffff";
-        crc2.stroke();
-        crc2.fillStyle = "#ffffff";
-        crc2.fill();
-
-        crc2.beginPath();
-        crc2.arc(310, 55, 20, 0, 2 * Math.PI);
-        crc2.strokeStyle = "#ffffff";
-        crc2.stroke();
-        crc2.fillStyle = "#ffffff";
-        crc2.fill();
 
         drawTriangle(90, 500);
         drawTriangle(150, 480);
@@ -167,21 +132,26 @@ namespace canvasaufgabe2 {
             drawTriangle(x, y);
         }
 
-        for (let i: number = 0; i < 50; i++) {
-            var x: number = 800 * Math.random();
-            var y: number = 500 * Math.random();
+        //        for (let i: number = 0; i < 50; i++) {
+        //            var x: number = 800 * Math.random();
+        //            var y: number = 500 * Math.random();
+        //
+        //            drawSnow(x, y);
 
-            drawSnow(x, y);
-           
+        //       }
+        for (let i: number = 0; i < 2; i++) {
+            cloudmovingX[i] = 0 + Math.random() * 800;
+            cloudmovingY[i] = 0 + Math.random() * 100+70;
         }
 
         for (let i: number = 0; i < 50; i++) {
-            arrayX[i] = 500;
-            arrayY[i] = 400;
+            arrayX[i] = 0 + Math.random() * 800;
+            arrayY[i] = 0 + Math.random() * 600;
         }
-        
-        image = crc2.getImageData(0, 0, 800, 600)
-       
+
+        image = crc2.getImageData(0, 0, 800, 600);
+        animate();
+
     }
 
     function drawTriangle(_x: number, _y: number): void {
@@ -199,23 +169,77 @@ namespace canvasaufgabe2 {
     function drawSnow(_x: number, _y: number): void {
         crc2.beginPath();
         crc2.arc(_x + 10, _y + 10, 5, 0, 2 * Math.PI);
-        crc2.stroke();
         crc2.fillStyle = "#ffffffff";
         crc2.fill();
         crc2.strokeStyle = "#000000";
         crc2.stroke();
     }
 
-    function animateSchnee(): void {
-        crc2.clearRect(0, 0, 800, 600);
+    function drawcloud(_x: number, _y: number): void {
+        crc2.beginPath();
+        crc2.arc(_x, _y, 20, 0, 2 * Math.PI);
+        crc2.strokeStyle = "#ffffff";
+        crc2.stroke();
+        crc2.fillStyle = "#ffffff";
+        crc2.fill();
 
-        for (let i: number; i < arrayX.length; i++) {
-            arrayX[i] += Math.random() * 4 - 2;
-            arrayY[i] += Math.random() * 4 - 2;
-            crc2.fillStyle = "#ffffff";
-            crc2.fillRect(arrayX[i], arrayY[i], 20, 20);
+        crc2.beginPath();
+        crc2.arc(_x - 10, _y, 20, 0, 2 * Math.PI);
+        crc2.strokeStyle = "#ffffff";
+        crc2.stroke();
+        crc2.fillStyle = "#ffffff";
+        crc2.fill();
+
+        crc2.beginPath();
+        crc2.arc(_x - 20, _y + 5, 20, 0, 2 * Math.PI);
+        crc2.strokeStyle = "#ffffff";
+        crc2.stroke();
+        crc2.fillStyle = "#ffffff";
+        crc2.fill();
+
+        crc2.beginPath();
+        crc2.arc(_x - 10, _y + 10, 20, 0, 2 * Math.PI);
+        crc2.strokeStyle = "#ffffff";
+        crc2.stroke();
+        crc2.fillStyle = "#ffffff";
+        crc2.fill();
+
+        crc2.beginPath();
+        crc2.arc(_x, _y + 10, 20, 0, 2 * Math.PI);
+        crc2.strokeStyle = "#ffffff";
+        crc2.stroke();
+        crc2.fillStyle = "#ffffff";
+        crc2.fill();
+
+        crc2.beginPath();
+        crc2.arc(_x + 10, _y + 5, 20, 0, 2 * Math.PI);
+        crc2.strokeStyle = "#ffffff";
+        crc2.stroke();
+        crc2.fillStyle = "#ffffff";
+        crc2.fill();
+    }
+
+    function animate(): void {
+        crc2.putImageData(image, 0, 0);
+
+        for (let i: number = 0; i < arrayX.length; i++) {
+            if (arrayY[i] > 583) {
+                arrayY[i] = 0;
+            }
+
+            arrayY[i] += Math.random();
+            drawSnow(arrayX[i], arrayY[i]);
 
         }
-        window.setTimeout(animateSchnee, 30);
+
+        for (let i: number = 0; i < cloudmovingX.length; i++) {
+
+            if (cloudmovingX[i] > 800) {
+                cloudmovingX[i] = 0;
+            }
+            cloudmovingX[i] += Math.random();
+            drawcloud(cloudmovingX[i], cloudmovingY[i]);
+        }
+        window.setTimeout(animate, 20);
     }
 }
