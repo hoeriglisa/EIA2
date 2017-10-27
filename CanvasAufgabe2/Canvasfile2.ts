@@ -154,8 +154,8 @@ namespace canvasaufgabe2 {
         drawTriangle(90, 500);
         drawTriangle(150, 480);
         drawTriangle(80, 430);
-        drawTriangle (200, 370);
-        
+        drawTriangle(200, 370);
+
         for (let i: number = 0; i < 15; i++) {
             var x: number = 10 + Math.random() * 250;
             var y: number = 350 + Math.random() * 180;
@@ -163,13 +163,13 @@ namespace canvasaufgabe2 {
 
             drawTriangle(x, y);
         }
-        
+
         for (let i: number = 0; i < 50; i++) {
-            var x: number = 800 * Math.random ();
-            var y: number = 500 * Math.random ();
-            
-            drawSnow (x,y);
-            }
+            var x: number = 800 * Math.random();
+            var y: number = 500 * Math.random();
+
+            drawSnow(x, y);
+        }
 
     }
 
@@ -179,19 +179,19 @@ namespace canvasaufgabe2 {
         crc2.lineTo(_x + 20, _y + 70);
         crc2.lineTo(_x - 20, _y + 70);
         crc2.closePath();
-        crc2. strokeStyle ="#ffffff";
+        crc2.strokeStyle = "#ffffff";
         crc2.stroke();
         crc2.fillStyle = "#0a5108";
         crc2.fill();
     }
-    
-    function drawSnow (_x:number, _y:number):void {
+
+    function drawSnow(_x: number, _y: number): void {
         crc2.beginPath();
-        crc2.arc(_x+ 10, _y+10, 5, 0, 2 * Math.PI);
+        crc2.arc(_x + 10, _y + 10, 5, 0, 2 * Math.PI);
         crc2.stroke();
         crc2.fillStyle = "#ffffffff";
         crc2.fill();
-        crc2. strokeStyle ="#000000";
-        crc2. stroke();
-        }
+        crc2.strokeStyle = "#000000";
+        crc2.stroke();
+    }
 }
