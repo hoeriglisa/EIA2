@@ -278,7 +278,7 @@ namespace canvasaufgabe3 {
 
 
 
-            moveskifahrerX[i] += 1, 5;
+            moveskifahrerX[i] += 1,5;
             moveskifahrerY[i] += 1;
             drawFahrer(moveskifahrerX[i], moveskifahrerY[i]);
         }
