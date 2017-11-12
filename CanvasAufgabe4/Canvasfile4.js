@@ -229,6 +229,14 @@ var canvasaufgabe4;
         for (let i = 0; i < SBewegen.length; i++) {
             drawFahrer(SBewegen[i]);
             BewegedichSkifahrer(SBewegen[i]);
+            if (SBewegen[i].moveskifahrerX > 600) {
+                SBewegen[i].moveskifahrerX = 0;
+                SBewegen[i].moveskifahrerY = 250;
+            }
+            if (SBewegen[i].moveskifahrerY > 800) {
+                SBewegen[i].moveskifahrerY = 250;
+                SBewegen[i].moveskifahrerX = 0;
+            }
         }
         window.setTimeout(animate, 20);
     }

@@ -124,7 +124,7 @@ namespace canvasaufgabe4 {
         crc2.stroke();
 
         drawcloud(x, y);
-        
+
 
         /**Wolke**/
 
@@ -282,6 +282,16 @@ namespace canvasaufgabe4 {
             drawFahrer(SBewegen[i]);
             BewegedichSkifahrer(SBewegen[i]);
 
+            if (SBewegen[i].moveskifahrerX > 600) {
+                SBewegen[i].moveskifahrerX = 0;
+                SBewegen[i].moveskifahrerY = 250;
+            }
+
+            if (SBewegen[i].moveskifahrerY > 800) {
+                SBewegen[i].moveskifahrerY = 250;
+                SBewegen[i].moveskifahrerX = 0;
+            }
+
         }
 
         window.setTimeout(animate, 20);
@@ -298,5 +308,6 @@ namespace canvasaufgabe4 {
 
 
     }
+
 
 }
