@@ -10,11 +10,10 @@ namespace canvasaufgabe5 {
     window.addEventListener("load", init);
     export let crc2: CanvasRenderingContext2D;
     var image: ImageData;
-    let arrayX: number[] = [];
-    let arrayY: number[] = [];
-    let cloudmovingX: number[] = [];
-    let cloudmovingY: number[] = [];
+    let SnowX: SnowClass[] = [];
+    let CloudX: CloudClass[] = [];
     let moveskifahrerX: SkifahrerClass[] = [];
+    let Tree: TreeClass[] = [];
 
 
     function init(): void {
@@ -37,26 +36,6 @@ namespace canvasaufgabe5 {
         crc2.fillStyle = "#ffffff";
         crc2.fill();
 
-        /** Baum 1 rechts unten**/
-        crc2.beginPath();
-        crc2.moveTo(310, 480);
-        crc2.lineTo(350, 590);
-        crc2.lineTo(270, 590);
-        crc2.closePath();
-        crc2.stroke();
-        crc2.fillStyle = "#0a5108";
-        crc2.fill();
-
-        /** Baum 2 mittig **/
-        crc2.beginPath();
-        crc2.moveTo(135, 370);
-        crc2.lineTo(100, 480);
-        crc2.lineTo(170, 480);
-        crc2.closePath();
-        crc2.stroke();
-        crc2.fillStyle = "#0a5108";
-        crc2.fill();
-
         /** Lift **/
         crc2.beginPath();
         crc2.moveTo(0, 100);
@@ -70,7 +49,7 @@ namespace canvasaufgabe5 {
         crc2.lineTo(450, 580);
         crc2.lineTo(350, 580);
         crc2.lineTo(350, 510);
-        crc2.stroke
+        crc2.stroke();
         crc2.fillStyle = "#502107";
         crc2.fill();
 
@@ -91,7 +70,7 @@ namespace canvasaufgabe5 {
         crc2.lineTo(400, 580);
         crc2.lineTo(370, 580);
         crc2.lineTo(370, 530);
-        crc2.stroke
+        crc2.stroke();
         crc2.fillStyle = "#000000";
         crc2.fill();
 
@@ -102,7 +81,7 @@ namespace canvasaufgabe5 {
         crc2.lineTo(440, 560);
         crc2.lineTo(405, 560);
         crc2.lineTo(405, 530);
-        crc2.stroke
+        crc2.stroke();
         crc2.fillStyle = "#e8f1f4";
         crc2.fill();
 
@@ -115,148 +94,70 @@ namespace canvasaufgabe5 {
         crc2.strokeStyle = "#f6ff00";
         crc2.stroke();
 
-        drawcloud(x, y);
-
-
-        /**Wolke**/
-
-
-        drawTriangle(90, 500);
-        drawTriangle(150, 480);
-        drawTriangle(80, 430);
-        drawTriangle(200, 370);
-
-        //Bäumchen
-        for (let i: number = 0; i < 15; i++) {
-            var x: number = 10 + Math.random() * 250;
-            var y: number = 350 + Math.random() * 180;
-
-
-            drawTriangle(x, y);
-
-        }
-
-        //Wolken
-        for (let i: number = 0; i < 2; i++) {
-            cloudmovingX[i] = 0 + Math.random() * 800;
-            cloudmovingY[i] = 0 + Math.random() * 100 + 70;
-        }
-
-        //Schneeflocken
-        for (let i: number = 0; i < 50; i++) {
-            arrayX[i] = 0 + Math.random() * 800;
-            arrayY[i] = 0 + Math.random() * 600;
-        }
-
-
         //Fahrer
         for (let i: number = 0; i < 5; i++) {
-            let s: SkifahrerClass = new SkifahrerClass(0, 150, Math.random() * 6 + 1, Math.random() * 6 + 1, "#0000");
-            
+            let s: SkifahrerClass = new SkifahrerClass(0, 150, Math.random() * 6 + 1, Math.random() * 6 + 1, "#ff0000");
+
             moveskifahrerX[i] = s;
         }
 
+        // Schnee
+
+        for (let i: number = 0; i < 50; i++) {
+            let s: SnowClass = new SnowClass(0 + Math.random() * 800, 0 + Math.random() * 600, "#ff0000");
+
+            SnowX[i] = s;
+        }
+
+        // Clouds
+        for (let i: number = 0; i < 2; i++) {
+            let s: CloudClass = new CloudClass(0 + Math.random() * 600, 200, "#00ff00");
+
+            CloudX[i] = s;
+        }
+        //Bäume
+        for (let i: number = 0; i < 10; i++) {
+            let s: TreeClass = new TreeClass(80 + Math.random() * 200, 600 + Math.random() * 100, "#0000ff");
+
+            Tree[i] = s;
+        }
 
     }
 
     image = crc2.getImageData(0, 0, 800, 600);
     animate();
 
-
-
-    function drawTriangle(_x: number, _y: number): void {
-        crc2.beginPath();
-        crc2.moveTo(_x, _y);
-        crc2.lineTo(_x + 20, _y + 70);
-        crc2.lineTo(_x - 20, _y + 70);
-        crc2.closePath();
-        crc2.strokeStyle = "#ffffff";
-        crc2.stroke();
-        crc2.fillStyle = "#0a5108";
-        crc2.fill();
-    }
-
-    function drawSnow(_x: number, _y: number): void {
-        crc2.beginPath();
-        crc2.arc(_x + 10, _y + 10, 5, 0, 2 * Math.PI);
-        crc2.fillStyle = "#ffffffff";
-        crc2.fill();
-        crc2.strokeStyle = "#000000";
-        crc2.stroke();
-    }
-
-    function drawcloud(_x: number, _y: number): void {
-        crc2.beginPath();
-        crc2.arc(_x, _y, 20, 0, 2 * Math.PI);
-        crc2.strokeStyle = "#ffffff";
-        crc2.stroke();
-        crc2.fillStyle = "#ffffff";
-        crc2.fill();
-
-        crc2.beginPath();
-        crc2.arc(_x - 10, _y, 20, 0, 2 * Math.PI);
-        crc2.strokeStyle = "#ffffff";
-        crc2.stroke();
-        crc2.fillStyle = "#ffffff";
-        crc2.fill();
-
-        crc2.beginPath();
-        crc2.arc(_x - 20, _y + 5, 20, 0, 2 * Math.PI);
-        crc2.strokeStyle = "#ffffff";
-        crc2.stroke();
-        crc2.fillStyle = "#ffffff";
-        crc2.fill();
-
-        crc2.beginPath();
-        crc2.arc(_x - 10, _y + 10, 20, 0, 2 * Math.PI);
-        crc2.strokeStyle = "#ffffff";
-        crc2.stroke();
-        crc2.fillStyle = "#ffffff";
-        crc2.fill();
-
-        crc2.beginPath();
-        crc2.arc(_x, _y + 10, 20, 0, 2 * Math.PI);
-        crc2.strokeStyle = "#ffffff";
-        crc2.stroke();
-        crc2.fillStyle = "#ffffff";
-        crc2.fill();
-
-        crc2.beginPath();
-        crc2.arc(_x + 10, _y + 5, 20, 0, 2 * Math.PI);
-        crc2.strokeStyle = "#ffffff";
-        crc2.stroke();
-        crc2.fillStyle = "#ffffff";
-        crc2.fill();
-    }
-
-
-
     function animate(): void {
         crc2.putImageData(image, 0, 0);
+
         //Schnee
-        for (let i: number = 0; i < arrayX.length; i++) {
-            if (arrayY[i] > 583) {
-                arrayY[i] = 0;
-            }
-
-            arrayY[i] += Math.random();
-            drawSnow(arrayX[i], arrayY[i]);
-
+        for (let i: number = 0; i < SnowX.length; i++) {
+            let s: SnowClass = SnowX[i];
+            s.moveSnow();
         }
+
+
 
         //Wolken
-        for (let i: number = 0; i < cloudmovingX.length; i++) {
+        for (let i: number = 0; i < CloudX.length; i++) {
 
-            if (cloudmovingX[i] > 800) {
-                cloudmovingX[i] = 0;
-            }
-            cloudmovingX[i] += Math.random();
-            drawcloud(cloudmovingX[i], cloudmovingY[i]);
+            let s: CloudClass = CloudX[i];
+            s.moveCloud();
         }
 
+
+
+        // Skifahrer
         for (let i: number = 0; i < moveskifahrerX.length; i++) {
             let s: SkifahrerClass = moveskifahrerX[i];
             s.move();
+        }
+
+        // Bäumchen
+
+        for (let i: number = 0; i < Tree.length; i++) {
+            let s: TreeClass = Tree[i];
+            s.drawTree();
         }
 
 

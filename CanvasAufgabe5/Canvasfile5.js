@@ -9,11 +9,10 @@ var canvasaufgabe5;
 (function (canvasaufgabe5) {
     window.addEventListener("load", init);
     var image;
-    let arrayX = [];
-    let arrayY = [];
-    let cloudmovingX = [];
-    let cloudmovingY = [];
+    let SnowX = [];
+    let CloudX = [];
     let moveskifahrerX = [];
+    let Tree = [];
     function init() {
         let canvas = document.getElementsByTagName("canvas")[0];
         console.log(canvas);
@@ -30,24 +29,6 @@ var canvasaufgabe5;
         canvasaufgabe5.crc2.stroke();
         canvasaufgabe5.crc2.fillStyle = "#ffffff";
         canvasaufgabe5.crc2.fill();
-        /** Baum 1 rechts unten**/
-        canvasaufgabe5.crc2.beginPath();
-        canvasaufgabe5.crc2.moveTo(310, 480);
-        canvasaufgabe5.crc2.lineTo(350, 590);
-        canvasaufgabe5.crc2.lineTo(270, 590);
-        canvasaufgabe5.crc2.closePath();
-        canvasaufgabe5.crc2.stroke();
-        canvasaufgabe5.crc2.fillStyle = "#0a5108";
-        canvasaufgabe5.crc2.fill();
-        /** Baum 2 mittig **/
-        canvasaufgabe5.crc2.beginPath();
-        canvasaufgabe5.crc2.moveTo(135, 370);
-        canvasaufgabe5.crc2.lineTo(100, 480);
-        canvasaufgabe5.crc2.lineTo(170, 480);
-        canvasaufgabe5.crc2.closePath();
-        canvasaufgabe5.crc2.stroke();
-        canvasaufgabe5.crc2.fillStyle = "#0a5108";
-        canvasaufgabe5.crc2.fill();
         /** Lift **/
         canvasaufgabe5.crc2.beginPath();
         canvasaufgabe5.crc2.moveTo(0, 100);
@@ -60,7 +41,7 @@ var canvasaufgabe5;
         canvasaufgabe5.crc2.lineTo(450, 580);
         canvasaufgabe5.crc2.lineTo(350, 580);
         canvasaufgabe5.crc2.lineTo(350, 510);
-        canvasaufgabe5.crc2.stroke;
+        canvasaufgabe5.crc2.stroke();
         canvasaufgabe5.crc2.fillStyle = "#502107";
         canvasaufgabe5.crc2.fill();
         /**Dach**/
@@ -79,7 +60,7 @@ var canvasaufgabe5;
         canvasaufgabe5.crc2.lineTo(400, 580);
         canvasaufgabe5.crc2.lineTo(370, 580);
         canvasaufgabe5.crc2.lineTo(370, 530);
-        canvasaufgabe5.crc2.stroke;
+        canvasaufgabe5.crc2.stroke();
         canvasaufgabe5.crc2.fillStyle = "#000000";
         canvasaufgabe5.crc2.fill();
         /**Fenster**/
@@ -89,7 +70,7 @@ var canvasaufgabe5;
         canvasaufgabe5.crc2.lineTo(440, 560);
         canvasaufgabe5.crc2.lineTo(405, 560);
         canvasaufgabe5.crc2.lineTo(405, 530);
-        canvasaufgabe5.crc2.stroke;
+        canvasaufgabe5.crc2.stroke();
         canvasaufgabe5.crc2.fillStyle = "#e8f1f4";
         canvasaufgabe5.crc2.fill();
         /**Sonne**/
@@ -100,114 +81,50 @@ var canvasaufgabe5;
         canvasaufgabe5.crc2.fill();
         canvasaufgabe5.crc2.strokeStyle = "#f6ff00";
         canvasaufgabe5.crc2.stroke();
-        drawcloud(x, y);
-        /**Wolke**/
-        drawTriangle(90, 500);
-        drawTriangle(150, 480);
-        drawTriangle(80, 430);
-        drawTriangle(200, 370);
-        //B�umchen
-        for (let i = 0; i < 15; i++) {
-            var x = 10 + Math.random() * 250;
-            var y = 350 + Math.random() * 180;
-            drawTriangle(x, y);
-        }
-        //Wolken
-        for (let i = 0; i < 2; i++) {
-            cloudmovingX[i] = 0 + Math.random() * 800;
-            cloudmovingY[i] = 0 + Math.random() * 100 + 70;
-        }
-        //Schneeflocken
-        for (let i = 0; i < 50; i++) {
-            arrayX[i] = 0 + Math.random() * 800;
-            arrayY[i] = 0 + Math.random() * 600;
-        }
         //Fahrer
         for (let i = 0; i < 5; i++) {
-            let s = new canvasaufgabe5.SkifahrerClass(0, 150, Math.random() * 6 + 1, Math.random() * 6 + 1, "#0000");
+            let s = new canvasaufgabe5.SkifahrerClass(0, 150, Math.random() * 6 + 1, Math.random() * 6 + 1, "#ff0000");
             moveskifahrerX[i] = s;
+        }
+        // Schnee
+        for (let i = 0; i < 50; i++) {
+            let s = new canvasaufgabe5.SnowClass(0 + Math.random() * 800, 0 + Math.random() * 600, "#ff0000");
+            SnowX[i] = s;
+        }
+        // Clouds
+        for (let i = 0; i < 2; i++) {
+            let s = new canvasaufgabe5.CloudClass(0 + Math.random() * 600, 200, "#00ff00");
+            CloudX[i] = s;
+        }
+        //B�ume
+        for (let i = 0; i < 10; i++) {
+            let s = new canvasaufgabe5.TreeClass(80 + Math.random() * 200, 600 + Math.random() * 100, "#0000ff");
+            Tree[i] = s;
         }
     }
     image = canvasaufgabe5.crc2.getImageData(0, 0, 800, 600);
     animate();
-    function drawTriangle(_x, _y) {
-        canvasaufgabe5.crc2.beginPath();
-        canvasaufgabe5.crc2.moveTo(_x, _y);
-        canvasaufgabe5.crc2.lineTo(_x + 20, _y + 70);
-        canvasaufgabe5.crc2.lineTo(_x - 20, _y + 70);
-        canvasaufgabe5.crc2.closePath();
-        canvasaufgabe5.crc2.strokeStyle = "#ffffff";
-        canvasaufgabe5.crc2.stroke();
-        canvasaufgabe5.crc2.fillStyle = "#0a5108";
-        canvasaufgabe5.crc2.fill();
-    }
-    function drawSnow(_x, _y) {
-        canvasaufgabe5.crc2.beginPath();
-        canvasaufgabe5.crc2.arc(_x + 10, _y + 10, 5, 0, 2 * Math.PI);
-        canvasaufgabe5.crc2.fillStyle = "#ffffffff";
-        canvasaufgabe5.crc2.fill();
-        canvasaufgabe5.crc2.strokeStyle = "#000000";
-        canvasaufgabe5.crc2.stroke();
-    }
-    function drawcloud(_x, _y) {
-        canvasaufgabe5.crc2.beginPath();
-        canvasaufgabe5.crc2.arc(_x, _y, 20, 0, 2 * Math.PI);
-        canvasaufgabe5.crc2.strokeStyle = "#ffffff";
-        canvasaufgabe5.crc2.stroke();
-        canvasaufgabe5.crc2.fillStyle = "#ffffff";
-        canvasaufgabe5.crc2.fill();
-        canvasaufgabe5.crc2.beginPath();
-        canvasaufgabe5.crc2.arc(_x - 10, _y, 20, 0, 2 * Math.PI);
-        canvasaufgabe5.crc2.strokeStyle = "#ffffff";
-        canvasaufgabe5.crc2.stroke();
-        canvasaufgabe5.crc2.fillStyle = "#ffffff";
-        canvasaufgabe5.crc2.fill();
-        canvasaufgabe5.crc2.beginPath();
-        canvasaufgabe5.crc2.arc(_x - 20, _y + 5, 20, 0, 2 * Math.PI);
-        canvasaufgabe5.crc2.strokeStyle = "#ffffff";
-        canvasaufgabe5.crc2.stroke();
-        canvasaufgabe5.crc2.fillStyle = "#ffffff";
-        canvasaufgabe5.crc2.fill();
-        canvasaufgabe5.crc2.beginPath();
-        canvasaufgabe5.crc2.arc(_x - 10, _y + 10, 20, 0, 2 * Math.PI);
-        canvasaufgabe5.crc2.strokeStyle = "#ffffff";
-        canvasaufgabe5.crc2.stroke();
-        canvasaufgabe5.crc2.fillStyle = "#ffffff";
-        canvasaufgabe5.crc2.fill();
-        canvasaufgabe5.crc2.beginPath();
-        canvasaufgabe5.crc2.arc(_x, _y + 10, 20, 0, 2 * Math.PI);
-        canvasaufgabe5.crc2.strokeStyle = "#ffffff";
-        canvasaufgabe5.crc2.stroke();
-        canvasaufgabe5.crc2.fillStyle = "#ffffff";
-        canvasaufgabe5.crc2.fill();
-        canvasaufgabe5.crc2.beginPath();
-        canvasaufgabe5.crc2.arc(_x + 10, _y + 5, 20, 0, 2 * Math.PI);
-        canvasaufgabe5.crc2.strokeStyle = "#ffffff";
-        canvasaufgabe5.crc2.stroke();
-        canvasaufgabe5.crc2.fillStyle = "#ffffff";
-        canvasaufgabe5.crc2.fill();
-    }
     function animate() {
         canvasaufgabe5.crc2.putImageData(image, 0, 0);
         //Schnee
-        for (let i = 0; i < arrayX.length; i++) {
-            if (arrayY[i] > 583) {
-                arrayY[i] = 0;
-            }
-            arrayY[i] += Math.random();
-            drawSnow(arrayX[i], arrayY[i]);
+        for (let i = 0; i < SnowX.length; i++) {
+            let s = SnowX[i];
+            s.moveSnow();
         }
         //Wolken
-        for (let i = 0; i < cloudmovingX.length; i++) {
-            if (cloudmovingX[i] > 800) {
-                cloudmovingX[i] = 0;
-            }
-            cloudmovingX[i] += Math.random();
-            drawcloud(cloudmovingX[i], cloudmovingY[i]);
+        for (let i = 0; i < CloudX.length; i++) {
+            let s = CloudX[i];
+            s.moveCloud();
         }
+        // Skifahrer
         for (let i = 0; i < moveskifahrerX.length; i++) {
             let s = moveskifahrerX[i];
             s.move();
+        }
+        // B�umchen
+        for (let i = 0; i < Tree.length; i++) {
+            let s = Tree[i];
+            s.drawTree();
         }
         window.setTimeout(animate, 20);
     }

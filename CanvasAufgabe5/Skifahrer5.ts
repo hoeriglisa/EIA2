@@ -17,11 +17,6 @@ namespace canvasaufgabe5 {
             this.color = _color;
         }
 
-        updateSkifahrer(): void {
-            this.move();
-            this.drawFahrer();
-        }
-
         drawFahrer(): void {
             crc2.beginPath();
             crc2.arc(this.moveskifahrerX, this.moveskifahrerY, 8, 0, 2 * Math.PI);
@@ -52,6 +47,8 @@ namespace canvasaufgabe5 {
             this.moveskifahrerX += this.dx;
             this.moveskifahrerY += this.dy;
             this.drawFahrer();
+            
+            
         }
     }
 }

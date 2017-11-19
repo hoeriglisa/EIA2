@@ -8,10 +8,6 @@ var canvasaufgabe5;
             this.dy = _dy;
             this.color = _color;
         }
-        updateSkifahrer() {
-            this.move();
-            this.drawFahrer();
-        }
         drawFahrer() {
             canvasaufgabe5.crc2.beginPath();
             canvasaufgabe5.crc2.arc(this.moveskifahrerX, this.moveskifahrerY, 8, 0, 2 * Math.PI);
