@@ -83,22 +83,22 @@ var canvasaufgabe5;
         canvasaufgabe5.crc2.stroke();
         //Fahrer
         for (let i = 0; i < 5; i++) {
-            let s = new canvasaufgabe5.SkifahrerClass(0, 150, Math.random() * 6 + 1, Math.random() * 6 + 1, "#ff0000");
+            let s = new canvasaufgabe5.SkifahrerClass(0, 300, Math.random() * 6 + 1, Math.random() * 6 + 1, "#000000");
             moveskifahrerX[i] = s;
         }
         // Schnee
         for (let i = 0; i < 50; i++) {
-            let s = new canvasaufgabe5.SnowClass(0 + Math.random() * 800, 0 + Math.random() * 600, "#ff0000");
+            let s = new canvasaufgabe5.SnowClass(0 + Math.random() * 800, 0 + Math.random() * 600, "#ffffff");
             snowX[i] = s;
         }
         // Clouds
         for (let i = 0; i < 2; i++) {
-            let s = new canvasaufgabe5.CloudClass(0 + Math.random() * 600, 200, "#00ff00");
+            let s = new canvasaufgabe5.CloudClass(0 + Math.random() * 600, 100, "#ffffff");
             cloudX[i] = s;
         }
         //B�ume
         for (let i = 0; i < 10; i++) {
-            let s = new canvasaufgabe5.TreeClass(80 + Math.random() * 200, 600 + Math.random() * 100, "#0000ff");
+            let s = new canvasaufgabe5.TreeClass(80 + Math.random() * 200, 600 + Math.random() * 100, "#00ff00");
             tree[i] = s;
         }
         image = canvasaufgabe5.crc2.getImageData(0, 0, 800, 600);

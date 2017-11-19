@@ -96,7 +96,7 @@ namespace canvasaufgabe5 {
 
         //Fahrer
         for (let i: number = 0; i < 5; i++) {
-            let s: SkifahrerClass = new SkifahrerClass(0, 150, Math.random() * 6 + 1, Math.random() * 6 + 1, "#ff0000");
+            let s: SkifahrerClass = new SkifahrerClass(0, 300, Math.random() * 6 + 1, Math.random() * 6 + 1, "#000000");
 
             moveskifahrerX[i] = s;
         }
@@ -104,20 +104,20 @@ namespace canvasaufgabe5 {
         // Schnee
 
         for (let i: number = 0; i < 50; i++) {
-            let s: SnowClass = new SnowClass(0 + Math.random() * 800, 0 + Math.random() * 600, "#ff0000");
+            let s: SnowClass = new SnowClass(0 + Math.random() * 800, 0 + Math.random() * 600, "#ffffff");
 
             snowX[i] = s;
         }
 
         // Clouds
         for (let i: number = 0; i < 2; i++) {
-            let s: CloudClass = new CloudClass(0 + Math.random() * 600, 200, "#00ff00");
+            let s: CloudClass = new CloudClass(0 + Math.random() * 600, 100, "#ffffff");
 
             cloudX[i] = s;
         }
         //Bäume
         for (let i: number = 0; i < 10; i++) {
-            let s: TreeClass = new TreeClass(80 + Math.random() * 200, 600 + Math.random() * 100, "#0000ff");
+            let s: TreeClass = new TreeClass(80 + Math.random() * 200, 600 + Math.random() * 100, "#00ff00");
 
             tree[i] = s;
         }
