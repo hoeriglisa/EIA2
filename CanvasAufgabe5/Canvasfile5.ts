@@ -10,10 +10,10 @@ namespace canvasaufgabe5 {
     window.addEventListener("load", init);
     export let crc2: CanvasRenderingContext2D;
     var image: ImageData;
-    let SnowX: SnowClass[] = [];
-    let CloudX: CloudClass[] = [];
+    let snowX: SnowClass[] = [];
+    let cloudX: CloudClass[] = [];
     let moveskifahrerX: SkifahrerClass[] = [];
-    let Tree: TreeClass[] = [];
+    let tree: TreeClass[] = [];
 
 
     function init(): void {
@@ -106,42 +106,42 @@ namespace canvasaufgabe5 {
         for (let i: number = 0; i < 50; i++) {
             let s: SnowClass = new SnowClass(0 + Math.random() * 800, 0 + Math.random() * 600, "#ff0000");
 
-            SnowX[i] = s;
+            snowX[i] = s;
         }
 
         // Clouds
         for (let i: number = 0; i < 2; i++) {
             let s: CloudClass = new CloudClass(0 + Math.random() * 600, 200, "#00ff00");
 
-            CloudX[i] = s;
+            cloudX[i] = s;
         }
         //Bäume
         for (let i: number = 0; i < 10; i++) {
             let s: TreeClass = new TreeClass(80 + Math.random() * 200, 600 + Math.random() * 100, "#0000ff");
 
-            Tree[i] = s;
+            tree[i] = s;
         }
 
-    
 
-    image = crc2.getImageData(0, 0, 800, 600);
-    animate();
-}
+
+        image = crc2.getImageData(0, 0, 800, 600);
+        animate();
+    }
     function animate(): void {
         crc2.putImageData(image, 0, 0);
 
         //Schnee
-        for (let i: number = 0; i < SnowX.length; i++) {
-            let s: SnowClass = SnowX[i];
+        for (let i: number = 0; i < snowX.length; i++) {
+            let s: SnowClass = snowX[i];
             s.moveSnow();
         }
 
 
 
         //Wolken
-        for (let i: number = 0; i < CloudX.length; i++) {
+        for (let i: number = 0; i < cloudX.length; i++) {
 
-            let s: CloudClass = CloudX[i];
+            let s: CloudClass = cloudX[i];
             s.moveCloud();
         }
 
@@ -155,8 +155,8 @@ namespace canvasaufgabe5 {
 
         // Bäumchen
 
-        for (let i: number = 0; i < Tree.length; i++) {
-            let s: TreeClass = Tree[i];
+        for (let i: number = 0; i < tree.length; i++) {
+            let s: TreeClass = tree[i];
             s.drawTree();
         }
 
@@ -164,7 +164,7 @@ namespace canvasaufgabe5 {
         window.setTimeout(animate, 20);
 
 
-}
+    }
 
-    
+
 }

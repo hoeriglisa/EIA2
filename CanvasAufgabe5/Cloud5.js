@@ -45,10 +45,10 @@ var canvasaufgabe5;
             canvasaufgabe5.crc2.fill();
         }
         moveCloud() {
-            if (this.y > 800) {
-                this.y = 0;
+            if (this.x > 600) {
+                this.x = 0;
             }
-            this.y += Math.random();
+            this.x += Math.random();
             this.drawCloud();
         }
     }
