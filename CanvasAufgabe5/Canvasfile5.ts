@@ -126,7 +126,7 @@ namespace canvasaufgabe5 {
 
     image = crc2.getImageData(0, 0, 800, 600);
     animate();
-
+}
     function animate(): void {
         crc2.putImageData(image, 0, 0);
 
@@ -166,5 +166,5 @@ namespace canvasaufgabe5 {
 
 }
 
-    }
+    
 }

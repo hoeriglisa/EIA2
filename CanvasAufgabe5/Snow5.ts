@@ -30,6 +30,7 @@ namespace canvasaufgabe5 {
 
             this.y += Math.random();
             
+            
             this.drawSnow();
 
         }

@@ -103,30 +103,30 @@ var canvasaufgabe5;
         }
         image = canvasaufgabe5.crc2.getImageData(0, 0, 800, 600);
         animate();
-        function animate() {
-            canvasaufgabe5.crc2.putImageData(image, 0, 0);
-            //Schnee
-            for (let i = 0; i < SnowX.length; i++) {
-                let s = SnowX[i];
-                s.moveSnow();
-            }
-            //Wolken
-            for (let i = 0; i < CloudX.length; i++) {
-                let s = CloudX[i];
-                s.moveCloud();
-            }
-            // Skifahrer
-            for (let i = 0; i < moveskifahrerX.length; i++) {
-                let s = moveskifahrerX[i];
-                s.move();
-            }
-            // B�umchen
-            for (let i = 0; i < Tree.length; i++) {
-                let s = Tree[i];
-                s.drawTree();
-            }
-            window.setTimeout(animate, 20);
+    }
+    function animate() {
+        canvasaufgabe5.crc2.putImageData(image, 0, 0);
+        //Schnee
+        for (let i = 0; i < SnowX.length; i++) {
+            let s = SnowX[i];
+            s.moveSnow();
         }
+        //Wolken
+        for (let i = 0; i < CloudX.length; i++) {
+            let s = CloudX[i];
+            s.moveCloud();
+        }
+        // Skifahrer
+        for (let i = 0; i < moveskifahrerX.length; i++) {
+            let s = moveskifahrerX[i];
+            s.move();
+        }
+        // B�umchen
+        for (let i = 0; i < Tree.length; i++) {
+            let s = Tree[i];
+            s.drawTree();
+        }
+        window.setTimeout(animate, 20);
     }
 })(canvasaufgabe5 || (canvasaufgabe5 = {}));
 //# sourceMappingURL=Canvasfile5.js.map
