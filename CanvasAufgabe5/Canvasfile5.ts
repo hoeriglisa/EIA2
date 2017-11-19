@@ -122,7 +122,7 @@ namespace canvasaufgabe5 {
             Tree[i] = s;
         }
 
-    }
+    
 
     image = crc2.getImageData(0, 0, 800, 600);
     animate();
@@ -164,7 +164,7 @@ namespace canvasaufgabe5 {
         window.setTimeout(animate, 20);
 
 
-
+}
 
     }
 }
