@@ -2,9 +2,9 @@ var canvasaufgabe5;
 (function (canvasaufgabe5) {
     class SnowClass {
         constructor(_x, _y, _color) {
-            this.x += _x;
-            this.y += _y;
-            this.color += _color;
+            this.x = _x;
+            this.y = _y;
+            this.color = _color;
         }
         drawSnow() {
             canvasaufgabe5.crc2.beginPath();

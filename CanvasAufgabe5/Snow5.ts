@@ -8,9 +8,9 @@ namespace canvasaufgabe5 {
 
 
         constructor(_x: number, _y: number, _color: string) {
-            this.x += _x;
-            this.y += _y;
-            this.color += _color;
+            this.x = _x;
+            this.y = _y;
+            this.color = _color;
         }
 
         drawSnow(): void {

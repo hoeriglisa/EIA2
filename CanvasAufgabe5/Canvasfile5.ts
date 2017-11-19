@@ -117,7 +117,7 @@ namespace canvasaufgabe5 {
         }
         //Bäume
         for (let i: number = 0; i < 10; i++) {
-            let s: TreeClass = new TreeClass(80 + Math.random() * 200, 600 + Math.random() * 100, "#00ff00");
+            let s: TreeClass = new TreeClass(10 + Math.random() * 300, 400 + Math.random() * 100, "#0a5108");
 
             tree[i] = s;
         }

@@ -98,7 +98,7 @@ var canvasaufgabe5;
         }
         //B�ume
         for (let i = 0; i < 10; i++) {
-            let s = new canvasaufgabe5.TreeClass(80 + Math.random() * 200, 600 + Math.random() * 100, "#00ff00");
+            let s = new canvasaufgabe5.TreeClass(10 + Math.random() * 300, 400 + Math.random() * 100, "#0a5108");
             tree[i] = s;
         }
         image = canvasaufgabe5.crc2.getImageData(0, 0, 800, 600);
