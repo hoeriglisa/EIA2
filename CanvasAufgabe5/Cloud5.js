@@ -49,6 +49,7 @@ var canvasaufgabe5;
                 this.y = 0;
             }
             this.y += Math.random();
+            this.drawCloud();
         }
     }
     canvasaufgabe5.CloudClass = CloudClass;

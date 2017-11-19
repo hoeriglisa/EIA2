@@ -56,15 +56,17 @@ namespace canvasaufgabe5 {
             crc2.stroke();
             crc2.fillStyle = this.color;
             crc2.fill();
-        }
 
-        moveCloud(): void {
+}
+            moveCloud(): void {
 
-            if (this.y > 800) {
+                if(this.y > 800) {
                 this.y = 0;
             }
             this.y += Math.random();
+            this.drawCloud();
         }
     }
-}
 
+
+}
