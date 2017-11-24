@@ -109,22 +109,22 @@ var canvasaufgabe5;
         //Schnee
         for (let i = 0; i < snowX.length; i++) {
             let s = snowX[i];
-            s.moveSnow();
+            s.moveSnow(); // ausf�hren
         }
         //Wolken
         for (let i = 0; i < cloudX.length; i++) {
             let s = cloudX[i];
-            s.moveCloud();
+            s.moveCloud(); // ausf�hren
         }
         // Skifahrer
         for (let i = 0; i < moveskifahrerX.length; i++) {
             let s = moveskifahrerX[i];
-            s.move();
+            s.move(); // ausf�hren
         }
         // B�umchen
         for (let i = 0; i < tree.length; i++) {
             let s = tree[i];
-            s.drawTree();
+            s.drawTree(); // ausf�hren
         }
         window.setTimeout(animate, 20);
     }

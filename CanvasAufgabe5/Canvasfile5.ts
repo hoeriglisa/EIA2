@@ -132,8 +132,8 @@ namespace canvasaufgabe5 {
 
         //Schnee
         for (let i: number = 0; i < snowX.length; i++) {
-            let s: SnowClass = snowX[i];
-            s.moveSnow();
+            let s: SnowClass = snowX[i]; 
+            s.moveSnow(); // ausführen
         }
 
 
@@ -142,7 +142,7 @@ namespace canvasaufgabe5 {
         for (let i: number = 0; i < cloudX.length; i++) {
 
             let s: CloudClass = cloudX[i];
-            s.moveCloud();
+            s.moveCloud(); // ausführen
         }
 
 
@@ -150,14 +150,14 @@ namespace canvasaufgabe5 {
         // Skifahrer
         for (let i: number = 0; i < moveskifahrerX.length; i++) {
             let s: SkifahrerClass = moveskifahrerX[i];
-            s.move();
+            s.move(); // ausführen
         }
 
         // Bäumchen
 
         for (let i: number = 0; i < tree.length; i++) {
             let s: TreeClass = tree[i];
-            s.drawTree();
+            s.drawTree(); // ausführen
         }
 
 
