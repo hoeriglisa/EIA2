@@ -1,1 +1,1 @@
-{"version":3,"file":"Main6.js","sourceRoot":"","sources":["Main6.ts"],"names":[],"mappings":""}
+{"version":3,"file":"Main6.js","sourceRoot":"","sources":["Main6.ts"],"names":[],"mappings":"AAAA,IAAU,cAAc,CAmBvB;AAnBD,WAAU,cAAc,EAAC,CAAC;IAEtB;QAMI,YAAY,EAAU,EAAE,EAAU,EAAE,MAAc;YAC9C,IAAI,CAAC,CAAC,GAAG,EAAE,CAAC;YACZ,IAAI,CAAC,CAAC,GAAG,EAAE,CAAC;YACZ,IAAI,CAAC,KAAK,GAAG,MAAM,CAAC;QAExB,CAAC;QAED,IAAI,KAAW,CAAC;;QAEhB,IAAI,KAAW,CAAC;;IACpB,CAAC;IAhBY,mBAAI,OAgBhB,CAAA;AACL,CAAC,EAnBS,cAAc,KAAd,cAAc,QAmBvB"}

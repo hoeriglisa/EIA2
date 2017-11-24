@@ -10,10 +10,11 @@ namespace canvasaufgabe6 {
     window.addEventListener("load", init);
     export let crc2: CanvasRenderingContext2D;
     var image: ImageData;
-    let snowX: SnowClass[] = [];
-    let cloudX: CloudClass[] = [];
-    let moveskifahrerX: SkifahrerClass[] = [];
-    let tree: TreeClass[] = [];
+    let snowX: Snow[] = [];
+    let cloudX: Cloud[] = [];
+    let moveskifahrerX: skifahrer[] = [];
+    let treeX: tree[] = [];
+    let mainx: Main [] = [];
 
 
     function init(): void {
