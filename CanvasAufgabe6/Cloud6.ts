@@ -55,7 +55,7 @@ namespace canvasaufgabe6 {
                 this.x = 0;
             }
             this.x += Math.random();
-            this.drawCloud();
+            this.draw();
         }
     }
 
