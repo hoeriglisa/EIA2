@@ -12,8 +12,8 @@ namespace canvasaufgabe6 {
     var image: ImageData;
     let snowX: Snow[] = [];
     let cloudX: Cloud[] = [];
-    let moveskifahrerX: skifahrer[] = [];
-    let treeX: tree[] = [];
+    let moveskifahrerX: Skifahrer[] = [];
+    let treeX: Tree[] = [];
     let mainx: Main [] = [];
 
 
@@ -97,7 +97,7 @@ namespace canvasaufgabe6 {
 
         //Fahrer
         for (let i: number = 0; i < 5; i++) {
-            let s: SkifahrerClass = new SkifahrerClass(0, 300, Math.random() * 6 + 1, Math.random() * 6 + 1, "#000000");
+            let s: Skifahrer = new Skifahrer(0, 300, "#000000", Math.random() * 6 + 1, Math.random() * 6 + 1);
 
             moveskifahrerX[i] = s;
         }
@@ -105,22 +105,22 @@ namespace canvasaufgabe6 {
         // Schnee
 
         for (let i: number = 0; i < 50; i++) {
-            let s: SnowClass = new SnowClass(0 + Math.random() * 800, 0 + Math.random() * 600, "#ffffff");
+            let s: Snow = new Snow(0 + Math.random() * 800, 0 + Math.random() * 600, "#ffffff");
 
             snowX[i] = s;
         }
 
         // Clouds
         for (let i: number = 0; i < 2; i++) {
-            let s: CloudClass = new CloudClass(0 + Math.random() * 600, 100, "#ffffff");
+            let s: Cloud = new Cloud(0 + Math.random() * 600, 100, "#ffffff");
 
             cloudX[i] = s;
         }
         //Bäume
         for (let i: number = 0; i < 10; i++) {
-            let s: TreeClass = new TreeClass(10 + Math.random() * 300, 400 + Math.random() * 100, "#0a5108");
+            let s: Tree = new Tree(10 + Math.random() * 300, 400 + Math.random() * 100, "#0a5108");
 
-            tree[i] = s;
+            treeX[i] = s;
         }
 
 
@@ -133,8 +133,8 @@ namespace canvasaufgabe6 {
 
         //Schnee
         for (let i: number = 0; i < snowX.length; i++) {
-            let s: SnowClass = snowX[i];
-            s.moveSnow();
+            let s: Snow = snowX[i];
+            s.move();
         }
 
 
@@ -142,23 +142,23 @@ namespace canvasaufgabe6 {
         //Wolken
         for (let i: number = 0; i < cloudX.length; i++) {
 
-            let s: CloudClass = cloudX[i];
-            s.moveCloud();
+            let s: Cloud = cloudX[i];
+            s.move();
         }
 
 
 
         // Skifahrer
         for (let i: number = 0; i < moveskifahrerX.length; i++) {
-            let s: SkifahrerClass = moveskifahrerX[i];
+            let s: Skifahrer = moveskifahrerX[i];
             s.move();
         }
 
         // Bäumchen
 
-        for (let i: number = 0; i < tree.length; i++) {
-            let s: TreeClass = tree[i];
-            s.drawTree();
+        for (let i: number = 0; i < treeX.length; i++) {
+            let s: Tree = treeX[i];
+            s.draw();
         }
 
 
