@@ -6,6 +6,10 @@ var canvasaufgabe6;
             this.y = _y;
             this.color = _color;
         }
+        update() {
+            this.draw();
+            this.move();
+        }
         draw() { }
         ;
         move() { }

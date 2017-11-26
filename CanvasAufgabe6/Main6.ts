@@ -12,7 +12,11 @@ namespace canvasaufgabe6 {
             this.color = _color;
 
         }
-
+        
+        update (): void {
+            this.draw ();
+            this.move();
+}
         draw(): void { };
 
         move(): void { };

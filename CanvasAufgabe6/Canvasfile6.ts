@@ -10,11 +10,7 @@ namespace canvasaufgabe6 {
     window.addEventListener("load", init);
     export let crc2: CanvasRenderingContext2D;
     var image: ImageData;
-    let snowX: Snow[] = [];
-    let cloudX: Cloud[] = [];
-    let moveskifahrerX: Skifahrer[] = [];
-    let treeX: Tree[] = [];
-    let mainx: Main [] = [];
+    let mainx: Main[] = [];
 
 
     function init(): void {
@@ -22,6 +18,8 @@ namespace canvasaufgabe6 {
         console.log(canvas);
 
         crc2 = canvas.getContext("2d");
+
+        let n = 5;
         console.log(crc2);
 
         crc2.fillStyle = "#b2e3f4";
@@ -96,33 +94,20 @@ namespace canvasaufgabe6 {
         crc2.stroke();
 
         //Fahrer
-        for (let i: number = 0; i < 5; i++) {
+
+        for (let i: number = 0; i < n; i++) {
             let s: Skifahrer = new Skifahrer(0, 300, "#000000", Math.random() * 6 + 1, Math.random() * 6 + 1);
-
-            moveskifahrerX[i] = s;
-        }
-
-        // Schnee
-
-        for (let i: number = 0; i < 50; i++) {
-            let s: Snow = new Snow(0 + Math.random() * 800, 0 + Math.random() * 600, "#ffffff");
-
-            snowX[i] = s;
-        }
-
-        // Clouds
-        for (let i: number = 0; i < 2; i++) {
+            let s: Skifahrer = new Skifahrer(0, 300, "#000000", Math.random() * 6 + 1, Math.random() * 6 + 1);
             let s: Cloud = new Cloud(0 + Math.random() * 600, 100, "#ffffff");
-
-            cloudX[i] = s;
-        }
-        //Bäume
-        for (let i: number = 0; i < 10; i++) {
             let s: Tree = new Tree(10 + Math.random() * 300, 400 + Math.random() * 100, "#0a5108");
 
-            treeX[i] = s;
         }
 
+        let o: number = 100;
+
+        for (let i: number = 0; i < o; i++) {
+            let on: Snow = new Snow ( 0 + Math.random() * 800, 0 + Math.random() * 600, "#ffffff");
+        }
 
 
         image = crc2.getImageData(0, 0, 800, 600);
@@ -131,41 +116,15 @@ namespace canvasaufgabe6 {
     function animate(): void {
         crc2.putImageData(image, 0, 0);
 
-        //Schnee
-        for (let i: number = 0; i < snowX.length; i++) {
-            let s: Snow = snowX[i];
-            s.move();
+        for (let i: number = 0; i < mainx.length; i++) {
+
+            let s: Main = mainx[i];
+            s.update();
         }
-
-
-
-        //Wolken
-        for (let i: number = 0; i < cloudX.length; i++) {
-
-            let s: Cloud = cloudX[i];
-            s.move();
-        }
-
-
-
-        // Skifahrer
-        for (let i: number = 0; i < moveskifahrerX.length; i++) {
-            let s: Skifahrer = moveskifahrerX[i];
-            s.move();
-        }
-
-        // Bäumchen
-
-        for (let i: number = 0; i < treeX.length; i++) {
-            let s: Tree = treeX[i];
-            s.draw();
-        }
-
-
-        window.setTimeout(animate, 20);
-
-
     }
+
+
+    window.setTimeout(animate, 20);
 
 
 }
