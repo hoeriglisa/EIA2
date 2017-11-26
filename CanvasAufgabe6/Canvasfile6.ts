@@ -123,10 +123,10 @@ namespace canvasaufgabe6 {
             let s: Main = mainx[i];
             s.update();
         }
-    }
+  
 
 
     window.setTimeout(animate, 20);
 
-
+}
 }

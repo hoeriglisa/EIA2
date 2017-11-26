@@ -13,7 +13,7 @@ namespace canvasaufgabe6 {
 
         }
         
-        update (): void {
+        update(): void {
             this.draw ();
             this.move();
 }

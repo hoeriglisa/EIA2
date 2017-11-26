@@ -102,7 +102,7 @@ var canvasaufgabe6;
             let s = mainx[i];
             s.update();
         }
+        window.setTimeout(animate, 20);
     }
-    window.setTimeout(animate, 20);
 })(canvasaufgabe6 || (canvasaufgabe6 = {}));
 //# sourceMappingURL=Canvasfile6.js.map
