@@ -97,16 +97,18 @@ namespace canvasaufgabe6 {
 
         for (let i: number = 0; i < n; i++) {
             let s: Skifahrer = new Skifahrer(0, 300, "#000000", Math.random() * 6 + 1, Math.random() * 6 + 1);
-            let s: Skifahrer = new Skifahrer(0, 300, "#000000", Math.random() * 6 + 1, Math.random() * 6 + 1);
+            object.push(s);
             let s: Cloud = new Cloud(0 + Math.random() * 600, 100, "#ffffff");
+            object.push(c);
             let s: Tree = new Tree(10 + Math.random() * 300, 400 + Math.random() * 100, "#0a5108");
-
+            object.push(t);
         }
 
         let o: number = 100;
 
         for (let i: number = 0; i < o; i++) {
-            let on: Snow = new Snow ( 0 + Math.random() * 800, 0 + Math.random() * 600, "#ffffff");
+            let on: Snow = new Snow(0 + Math.random() * 800, 0 + Math.random() * 600, "#ffffff");
+            object.push(sno);
         }
 
 
