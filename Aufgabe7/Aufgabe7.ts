@@ -32,11 +32,6 @@ namespace aufgabe7 {
         document.body.appendChild(o);
     }
 
-    //    let n: number;
-    //  
-    //     for (let i: number = 0; i < n; i++) {
-    //            var x: number = 0 + Math.random() * 600;
-    //            var y: number = 0 + Math.random() *;
-    //        }
+  
 
 }
