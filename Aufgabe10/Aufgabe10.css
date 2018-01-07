@@ -1,0 +1,16 @@
+@media screen and (min-width: 700px) {
+	
+#Baumkonfigurator {
+	position: absolute;
+	float: left;
+	width: 30%;
+}
+
+#Bestelluebersicht {
+	position: fixed;
+	left: 31%;
+	width: 20%;
+	height: auto;
+}
+}
+

@@ -29,7 +29,7 @@ namespace aufgabe7 {
         o.style.right = _x + "px";
 
 
-        document.body.appendChild(o);
+        document.body.appendChild(o); //Mach dem Körper ein Kind
     }
 
   

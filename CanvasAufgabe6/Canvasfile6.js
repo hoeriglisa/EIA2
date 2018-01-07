@@ -91,7 +91,7 @@ var canvasaufgabe6;
         let o = 100;
         for (let i = 0; i < o; i++) {
             let on = new canvasaufgabe6.Snow(0 + Math.random() * 800, 0 + Math.random() * 600, "#ffffff");
-            mainx.push(on);
+            mainx.push(on); //Haut on in den Array rein 
         }
         image = canvasaufgabe6.crc2.getImageData(0, 0, 800, 600);
         animate();
@@ -100,7 +100,7 @@ var canvasaufgabe6;
         canvasaufgabe6.crc2.putImageData(image, 0, 0);
         for (let i = 0; i < mainx.length; i++) {
             let s = mainx[i];
-            s.update();
+            s.update(); //superklasse geupdated
         }
         window.setTimeout(animate, 20);
     }

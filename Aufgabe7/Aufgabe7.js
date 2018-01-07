@@ -19,7 +19,7 @@ var aufgabe7;
         o.style.width = "50px";
         o.style.top = _y + "px";
         o.style.right = _x + "px";
-        document.body.appendChild(o);
+        document.body.appendChild(o); //Mach dem K�rper ein Kind
     }
 })(aufgabe7 || (aufgabe7 = {}));
 //# sourceMappingURL=Aufgabe7.js.map

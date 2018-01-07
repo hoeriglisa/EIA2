@@ -108,7 +108,7 @@ namespace canvasaufgabe6 {
 
         for (let i: number = 0; i < o; i++) {
             let on: Snow = new Snow(0 + Math.random() * 800, 0 + Math.random() * 600, "#ffffff");
-            mainx.push(on);
+            mainx.push(on); //Haut on in den Array rein 
         }
 
 
@@ -121,7 +121,7 @@ namespace canvasaufgabe6 {
         for (let i: number = 0; i < mainx.length; i++) {
 
             let s: Main = mainx[i];
-            s.update();
+            s.update(); //superklasse geupdated
         }
   
 

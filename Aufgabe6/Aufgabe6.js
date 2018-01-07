@@ -3,6 +3,7 @@ var StudiVZ;
     var ArrayData = [];
     var students = [];
     var stop = false;
+    // das was sie eingeben ist mein input, da bef�lle ich meinen array
     while (!stop) {
         var action = prompt("Datensatz anlegen (n), abfragen(a) oder Programm beenden (s)\nn,a oder s eingeben");
         switch (action) {
@@ -22,7 +23,7 @@ var StudiVZ;
         }
     }
     function saveData(_input) {
-        let splitted = _input.split(",");
+        let splitted = _input.split(","); // der string wird aufgesplitted durch kommas und f�llt das array
         if (parseInt(splitted[0]) == NaN) {
             return "Matrikelnummer keine Nummer";
         }
@@ -35,12 +36,13 @@ var StudiVZ;
             Gender: geschlecht,
             Comment: splitted[3]
         };
-        students.push(student);
+        students.push(student); // Var vom Typ Array wird var student zugewiesen durch die methode push
         return "Eingegebene Daten" + "Matrikelnummer:" + student.Matrikel + "Nachname:" + student.Name + "Vorname:" + student.Firstname + "Alter:" + student.Age + "Geschlecht:" + student.Gender + "Kommentar:" + student.Comment;
     }
     function queryData(_Matrikel) {
         for (let i = 0; i < students.length; i++) {
             if (students[i].Matrikel == _Matrikel) {
+                //Wenn auffindbar, werden daten ausgegeben
                 return "Deine Daten zur Matrikel:" + students[i].Name + students[i].Firstname + students[i].Age + students[i].Gender;
             }
             else {
