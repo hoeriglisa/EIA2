@@ -15,110 +15,122 @@
 
 
 	<div id="Baumkonfigurator">
-	<fieldset>
-		<h2>Baumkonfigurator - Baum und Halterungen</h2>
-		<fieldset id="Baumtyp">
-			<h3>Baumtyp</h3>
-			<input type="radio" name="Radiogroup" value="Baumtyp1" id="Baumtyp1" />
-			<label for="radio1">Kiefer</label> <input type="radio"
-				name="Radiogroup" value="Baumtyp2" id="Baumtyp2" /> <label
-				for="radio2">Nordmanntanne</label> <input type="radio"
-				name="Radiogroup" value="Baumtyp3" id="Baumtyp3" /> <label
-				for="radio3"> !NEU! Exotische Palme </label>
+		<fieldset>
+			<h2>Baumkonfigurator - Baum und Halterungen</h2>
+			<fieldset id="Baumtyp">
+				<h3>Baumtyp</h3>
+				<input onclick="kieferauswahl();"type="radio" name="Radiogroup" value="Baumtyp1" id="Baumtyp1" />
+				<label for="radio1">Kiefer</label> 
+				<input onclick="nordmannauswahl();" type="radio"
+					name="Radiogroup" value="Baumtyp2" id="Baumtyp2" /> <label
+					for="radio2">Nordmanntanne</label> 
+				<input onclick="palmenauswahl();" type="radio"
+					name="Radiogroup" value="Baumtyp3" id="Baumtyp3" /> <label
+					for="radio3"> !NEU! Exotische Palme </label>
+			</fieldset>
+			<fieldset id="Halterung">
+				<h3>Halterung</h3>
+				<input type="radio" name="Radiogroup2" value="Halterung1"
+					id="Halterung1" /> <label for="radio1">Silber</label> <input
+					type="radio" name="Radiogroup2" value="Halterung2" id="Halterung2" />
+				<label for="radio2">Gold</label> <input type="radio"
+					name="Radiogroup2" value="Halterung3" id="Halterung3" /> <label
+					for="radio3">Bio Bambus</label>
+			</fieldset>
 		</fieldset>
-		<fieldset id="Halterung">
-			<h3>Halterung</h3>
-			<input type="radio" name="Radiogroup2" value="Halterung1"
-				id="Halterung1" /> <label for="radio1">Silber</label> <input
-				type="radio" name="Radiogroup2" value="Halterung2" id="Halterung2" />
-			<label for="radio2">Gold</label> <input type="radio"
-				name="Radiogroup2" value="Halterung3" id="Halterung3" /> <label
-				for="radio3">Bio Bambus</label>
+
+		<fieldset>
+			<h2>Baumschmuck</h2>
+
+
+			<fieldset id="Schmuck">
+				<h3>Kugeln</h3>
+				<input type="checkbox" name="Checkbox1" value="check1" id="check1" />
+				<label for="check1">Rote Kugeln</label> <input type="checkbox"
+					name="Checkbox2" value="check2" id="check2" /> <label for="check2">
+					Goldene Kugeln</label> <input type="checkbox" name="Diskokugeln"
+					value="check3" id="check3" /> <label for="check3">Diskokugeln</label>
+			</fieldset>
+			<fieldset>
+				<h3>Kerzentyp</h3>
+				<select name="Select" id="select">
+					<optgroup label="Klassisch"></optgroup>
+					<option value="option1">Große Kerzen</option>
+					<option value="option2" selected>Kleine Kerzen</option>
+					<optgroup label="Ausgefallener"></optgroup>
+					<option value="option3">Eckige Kerzen</option>
+					<option value="option4">Runde Kerzen</option>
+				</select>
+			</fieldset>
+
+			<fieldset>
+				<h3>Lamettaauswahl</h3>
+				<input type="text" name="Datalist" list="options"
+					placeholder="Doppelklick für Auswahl" />
+				<datalist id="options">
+					<option value="Große Packung / 500g"></option>
+					<option value="Mittlere Packung / 250g"></option>
+					<option value="Kleine Packung/ 100g"></option>
+
+				</datalist>
+
+			</fieldset>
 		</fieldset>
-	</fieldset>
-	
-	<fieldset> <h2> Baumschmuck</h2>
-	
+		<fieldset>
+			<h2>Daten und Lieferung</h2>
 
-	<fieldset id="Schmuck">
-		<h3> Kugeln </h3>
-		<input type="checkbox" name="Checkbox1" value="check1" id="check1" />
-		<label for="check1">Rote Kugeln</label> <input type="checkbox"
-			name="Checkbox2" value="check2" id="check2" /> <label for="check2"> Goldene Kugeln</label> <input type="checkbox" name="Diskokugeln" value="check3" id="check3" />
-		<label for="check3">Diskokugeln</label>
-	</fieldset>
-	<fieldset>
-	<h3> Kerzentyp</h3>
-		<select name="Select" id="select">
-			<optgroup label="Klassisch"></optgroup>
-			<option value="option1">Große Kerzen</option>
-			<option value="option2" selected>Kleine Kerzen</option>
-			<optgroup label="Ausgefallener"></optgroup>
-			<option value="option3">Eckige Kerzen</option>
-			<option value="option4">Runde Kerzen</option>
-		</select>
-	</fieldset>
-	
-	<fieldset> <h3> Lamettaauswahl</h3>
-		 <input type="text" name="Datalist" list="options"
-			placeholder="Doppelklick für Auswahl" />
-		<datalist id="options">
-			<option value="Große Packung / 500g"></option>
-			<option value="Mittlere Packung / 250g"></option>
-			<option value="Kleine Packung/ 100g"></option>
-		
-		</datalist>
-		
-	</fieldset>
-	</fieldset>
-	<fieldset> <h2> Daten und Lieferung</h2>
-	
-	<fieldset id="text"> <h3> Ihre Daten </h3>
-		Name <input type="text" name="Text" placeholder="Max Mustermann" required />
-		<hr />
-		Straße <input type="text" name="Text" placeholder="Musterstraße1, 79098" required />
-		<hr />
-		Land <select name="Select" id="select"> 
-			<option value="option1">Deutschland</option>
-			<option value="option2" selected>Österreich</option>
-			<option value="option2" selected>Schweiz</option>
-			</select> 
-		<hr />
-		Passwort <input type="password" name="Password"
-			placeholder="Passwort" />
-		<hr />
-		Mail <input type="email" name="Mail" placeholder="mustermann@mustermann.de" />
-		<hr />
-		Kommentar
-		<textarea name="Area" cols="30" rows="3" placeholder="Kommentar"></textarea>
-	</fieldset>
-	
-	<fieldset> <h3> Lieferung</h3>
-	<select name="Select" id="select">
-			<optgroup label="Aufpreis"></optgroup>
-			<option value="option1">Morning Express</option>
-			<option value="option2" selected>Premium</option>
-			<optgroup label="Inbegriffen"></optgroup>
-			<option value="option3">Standardlieferung</option>
-			
-		</select>
-		
-	</fieldset>
-	
-	</fieldset>
-	
-	
-	<fieldset id="button">
-		<button name="Button" type="button">Bestellung abschicken</button>
-	</fieldset>
-</div>
+			<fieldset id="text">
+				<h3>Ihre Daten</h3>
+				Name <input type="text" name="Text" placeholder="Max Mustermann"
+					required />
+				<hr />
+				Straße <input type="text" name="Text"
+					placeholder="Musterstraße1, 79098" required />
+				<hr />
+				Land <select name="Select" id="select">
+					<option value="option1">Deutschland</option>
+					<option value="option2" selected>Österreich</option>
+					<option value="option2" selected>Schweiz</option>
+				</select>
+				<hr />
+				Passwort <input type="password" name="Password"
+					placeholder="Passwort" />
+				<hr />
+				Mail <input type="email" name="Mail"
+					placeholder="mustermann@mustermann.de" />
+				<hr />
+				Kommentar
+				<textarea name="Area" cols="30" rows="3" placeholder="Kommentar"></textarea>
+			</fieldset>
 
-<div id="Bestelluebersicht">
-	<fieldset> <h2> Bestellung prüfen</h2>
-	Hier kommt die Bestellübersicht / Platzhalter
-	
-	</fieldset>
-</div>
+			<fieldset>
+				<h3>Lieferung</h3>
+				<select name="Select" id="select">
+					<optgroup label="Aufpreis"></optgroup>
+					<option value="option1">Morning Express</option>
+					<option value="option2" selected>Premium</option>
+					<optgroup label="Inbegriffen"></optgroup>
+					<option value="option3">Standardlieferung</option>
+
+				</select>
+
+			</fieldset>
+
+		</fieldset>
+
+
+		<fieldset id="button">
+			<button name="Button" type="button">Bestellung abschicken</button>
+		</fieldset>
+	</div>
+
+	<div id="Bestelluebersicht">
+		<fieldset>
+			<h2>Bestellung prüfen</h2>
+			Hier kommt die Bestellübersicht / Platzhalter
+
+		</fieldset>
+	</div>
 </body>
 
 

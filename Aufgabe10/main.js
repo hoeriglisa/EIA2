@@ -72,7 +72,5 @@ var aufgabe10;
         price: 5
     };
     let items = [kiefer.price, nordmann.price, palme.price, goldH.price, silberH.price, bambusH.price, kugelgold.price, kugelrot.price, kugeldisko.price, kleinekerzen.price, grossekerzen.price, eckigekerzen.price, rundekerzen.price, grossepackung.price, mittlerepackung.price, kleinepackung.price];
-    function init() {
-    }
 })(aufgabe10 || (aufgabe10 = {}));
 //# sourceMappingURL=main.js.map
