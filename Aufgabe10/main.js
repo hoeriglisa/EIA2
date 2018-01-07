@@ -71,5 +71,10 @@ var aufgabe10;
         name: "Kleine Packung/100g",
         price: 5
     };
+    let tree = [nordmann, kiefer, palme];
+    let kugeln = [kugelrot, kugelgold, kugeldisko];
+    let kerzen = [grossekerzen, kleinekerzen, eckigekerzen, rundekerzen];
+    let halterung = [silberH, goldH, bambusH];
+    let lametta = [grossepackung, mittlerepackung, kleinepackung];
 })(aufgabe10 || (aufgabe10 = {}));
 //# sourceMappingURL=main.js.map
