@@ -92,7 +92,6 @@ namespace aufgabe10 {
             price: 5
         };
   
-        let items: number [] = [kiefer.price, nordmann.price, palme.price, goldH.price, silberH.price, bambusH.price, kugelgold.price, kugelrot.price, kugeldisko.price, kleinekerzen.price, grossekerzen.price, eckigekerzen.price, rundekerzen.price, grossepackung.price, mittlerepackung.price, kleinepackung.price];
  
      
  }

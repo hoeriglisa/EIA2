@@ -71,6 +71,5 @@ var aufgabe10;
         name: "Kleine Packung/100g",
         price: 5
     };
-    let items = [kiefer.price, nordmann.price, palme.price, goldH.price, silberH.price, bambusH.price, kugelgold.price, kugelrot.price, kugeldisko.price, kleinekerzen.price, grossekerzen.price, eckigekerzen.price, rundekerzen.price, grossepackung.price, mittlerepackung.price, kleinepackung.price];
 })(aufgabe10 || (aufgabe10 = {}));
 //# sourceMappingURL=main.js.map
