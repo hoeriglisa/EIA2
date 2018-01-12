@@ -76,5 +76,9 @@ var aufgabe10;
     let kerzen = [grossekerzen, kleinekerzen, eckigekerzen, rundekerzen];
     let halterung = [silberH, goldH, bambusH];
     let lametta = [grossepackung, mittlerepackung, kleinepackung];
+    //Eventlistener der auf onclick reagiert, get element by id so die elemente bekommen, parseInt
+    function createElements() {
+        let box1 = document.createElement("Fieldset");
+    }
 })(aufgabe10 || (aufgabe10 = {}));
 //# sourceMappingURL=main.js.map

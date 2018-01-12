@@ -97,4 +97,8 @@ namespace aufgabe10 {
     let kerzen: Artikel[] = [grossekerzen, kleinekerzen, eckigekerzen, rundekerzen];
     let halterung: Artikel[] = [silberH, goldH, bambusH];
     let lametta: Artikel[] = [grossepackung, mittlerepackung, kleinepackung];
+    
+    //Eventlistener der auf onclick reagiert, get element by id so die elemente bekommen, parseInt
+    
+    
   }

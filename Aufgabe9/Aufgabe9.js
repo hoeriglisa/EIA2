@@ -30,6 +30,7 @@ var aufgabe9;
         div.innerText = _letter;
         div.id = _letter;
         div.className = "Buchstaben";
+        div.addEventListener("click", chooseLetterF);
         document.body.appendChild(div);
     }
     // Papier wird gezeichnet
@@ -45,7 +46,19 @@ var aufgabe9;
         document.body.appendChild(paper);
         // Was fehlt: Buchstaben in den Brief einf�gen, Buchstaben ausw�hlen & die Fehlermeldung beheben
     }
-    //Set letters to pap    
+    // choose Letter from List 
+    function chooseLetterF(_event) {
+        let mouseclick = _event.target;
+        mouseclick.style.backgroundColor = "green";
+        theChosenLetter = mouseclick.id;
+        let divs = document.getElementsByClassName("Buchstaben");
+        for (let i = 0; i < divs.length; i++) {
+            if (theChosenLetter != divs[i].id) {
+                divs[i].style.color = "pink";
+            }
+        }
+    }
+    //Set letters to paper    
     function insertLetters(_event) {
         let paperLetterBox = document.createElement("div");
         paperLetterBox.innerText = "_letter";

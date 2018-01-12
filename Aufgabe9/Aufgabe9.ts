@@ -11,7 +11,7 @@ namespace aufgabe9 {
     window.addEventListener("load", init);
     let theChosenLetter: string;
 
-    document.addEventListener("keydown", keyboardSelection());
+    document.addEventListener("keydown", keyboardSelection);
 
     // Characters 
     function init(): void {
@@ -38,7 +38,7 @@ namespace aufgabe9 {
         div.id = _letter;
         div.className = "Buchstaben";
 
-        div.addEventListener = ("click", chooseLetterF);
+        div.addEventListener("click", chooseLetterF);
         document.body.appendChild(div);
 
     }
@@ -61,7 +61,7 @@ namespace aufgabe9 {
     }
 
     // choose Letter from List 
-    function chooseLetterF(_event: MouseEvent) {
+    function chooseLetterF(_event: MouseEvent): void {
 
         let mouseclick: HTMLDivElement = <HTMLDivElement>_event.target;
 
