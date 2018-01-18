@@ -2,6 +2,10 @@
 
 namespace aufgabe10 {
 
+    let gesamtpreis: number = 0;
+    let baumpreis: number = 0;
+    let kieferRadio: HTMLElement = document.getElementById("Baumtyp1");
+
     window.addEventListener("load", init);
 
     interface Artikel {
@@ -97,8 +101,40 @@ namespace aufgabe10 {
     let kerzen: Artikel[] = [grossekerzen, kleinekerzen, eckigekerzen, rundekerzen];
     let halterung: Artikel[] = [silberH, goldH, bambusH];
     let lametta: Artikel[] = [grossepackung, mittlerepackung, kleinepackung];
-    
+
     //Eventlistener der auf onclick reagiert, get element by id so die elemente bekommen, parseInt
+
+    function init(): void {
+        document.getElementById("selectKiefer").style.display = "none";
+        document.getElementById("selectTanne").style.display = "none";
+        document.getElementById("selectPalme").style.display = "none";
+        kieferRadio.addEventListener("click", kieferauswahl);
+    }
+
+    function refreshPrice(): void{
+        gesamtpreis = baumpreis + halterungspreis + kugelpreis + kerzenpreis + lamettapreis + lieferungspreis;
+        document.getElementById("warenkorbgesamt").innerHTML = "Gesampreis: "+ gesamtpreis +"€";
+        }
     
-    
-  }
+    function kieferauswahl(): void {
+        document.getElementById("selectKiefer").style.display = "inline";
+        document.getElementById("selectTanne").style.display = "none";
+        document.getElementById("selectPalme").style.display = "none";
+        baumpreis = 15;
+        refreshPrice();
+    }
+
+    function tannenauswahl(): void {
+        document.getElementById("selectKiefer").style.display = "none";
+        document.getElementById("selectTanne").style.display = "inline";
+        document.getElementById("selectPalme").style.display = "none";
+        baumpreis = 20;
+    }
+
+    function palmenauswahl(): void {
+        document.getElementById("selectKiefer").style.display = "none";
+        document.getElementById("selectTanne").style.display = "none";
+        document.getElementById("selectPalme").style.display = "inline";
+        baumpreis = 10;
+    }
+}

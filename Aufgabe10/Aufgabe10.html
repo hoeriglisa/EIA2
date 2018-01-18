@@ -4,9 +4,7 @@
 <head>
 <meta charset="utf-8">
 <link rel="stylesheet" href="Aufgabe10.css">
-<script type="text/javascript" src="main.js">
-	
-</script>
+<script type="text/javascript" src="main.js"></script>
 </head>
 
 <title>Aufgabe 10</title>
@@ -19,12 +17,11 @@
 			<h2>Baumkonfigurator - Baum und Halterungen</h2>
 			<fieldset id="Baumtyp">
 				<h3>Baumtyp</h3>
-				<input onclick="kieferauswahl();"type="radio" name="Radiogroup" value="Baumtyp1" id="Baumtyp1" />
+				<input type="radio" name="Radiogroup" value="Baumtyp1" id="Baumtyp1" />
 				<label for="radio1">Kiefer</label> 
-				<input onclick="nordmannauswahl();" type="radio"
-					name="Radiogroup" value="Baumtyp2" id="Baumtyp2" /> <label
+				<input type="radio"name="Radiogroup" value="Baumtyp2" id="Baumtyp2" /> <label
 					for="radio2">Nordmanntanne</label> 
-				<input onclick="palmenauswahl();" type="radio"
+				<input type="radio"
 					name="Radiogroup" value="Baumtyp3" id="Baumtyp3" /> <label
 					for="radio3"> !NEU! Exotische Palme </label>
 			</fieldset>
@@ -127,8 +124,21 @@
 	<div id="Bestelluebersicht">
 		<fieldset>
 			<h2>Bestellung prüfen</h2>
-			Hier kommt die Bestellübersicht / Platzhalter
-
+			<table>
+			<tr id="selectKiefer">
+				<td>Kiefer</td>
+				<td>Preis: 15€</td>
+			</tr>
+			<tr id="selectTanne">
+				<td>Tanne</td>
+				<td>Preis: 20€</td>
+			</tr>
+			<tr id="selectPalme">
+				<td>Palme</td>
+				<td>Preis: 10€</td>
+			</tr>
+			</table>
+			<div id="warenkorbgesamt">Gesamtpreis: 0 €</div>
 		</fieldset>
 	</div>
 </body>

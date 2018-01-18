@@ -1,6 +1,9 @@
 /* Hiermit versichere ich, dass ich die Aufgabe selbst geschrieben habe. - Lisa San Martin H�rig, 256060*/
 var aufgabe10;
 (function (aufgabe10) {
+    let gesamtpreis = 0;
+    let baumpreis = 0;
+    let kieferRadio = document.getElementById("Baumtyp1");
     window.addEventListener("load", init);
     // Baumauswahl
     let kiefer = {
@@ -77,8 +80,30 @@ var aufgabe10;
     let halterung = [silberH, goldH, bambusH];
     let lametta = [grossepackung, mittlerepackung, kleinepackung];
     //Eventlistener der auf onclick reagiert, get element by id so die elemente bekommen, parseInt
-    function createElements() {
-        let box1 = document.createElement("Fieldset");
+    function init() {
+        document.getElementById("selectKiefer").style.display = "none";
+        document.getElementById("selectTanne").style.display = "none";
+        document.getElementById("selectPalme").style.display = "none";
+        kieferRadio.addEventListener("click", kieferauswahl);
+    }
+    function kieferauswahl() {
+        alert("TEST");
+        document.getElementById("selectKiefer").style.display = "inline";
+        document.getElementById("selectTanne").style.display = "none";
+        document.getElementById("selectPalme").style.display = "none";
+        baumpreis = 15;
+    }
+    function tannenauswahl() {
+        document.getElementById("selectKiefer").style.display = "none";
+        document.getElementById("selectTanne").style.display = "inline";
+        document.getElementById("selectPalme").style.display = "none";
+        baumpreis = 20;
+    }
+    function palmenauswahl() {
+        document.getElementById("selectKiefer").style.display = "none";
+        document.getElementById("selectTanne").style.display = "none";
+        document.getElementById("selectPalme").style.display = "inline";
+        baumpreis = 10;
     }
 })(aufgabe10 || (aufgabe10 = {}));
 //# sourceMappingURL=main.js.map
