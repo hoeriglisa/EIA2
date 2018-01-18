@@ -51,12 +51,16 @@ var aufgabe9;
     // choose Letter from List 
     function chooseLetterF(_event) {
         let mouseclick = _event.target;
-        mouseclick.style.backgroundColor = "green";
         theChosenLetter = mouseclick.id;
         let divs = document.getElementsByClassName("Buchstaben");
         for (let i = 0; i < divs.length; i++) {
             if (theChosenLetter != divs[i].id) {
                 divs[i].style.color = "pink";
+                divs[i].style.backgroundColor = "yellow";
+            }
+            else {
+                divs[i].style.color = "pink";
+                divs[i].style.backgroundColor = "green";
             }
         }
     }

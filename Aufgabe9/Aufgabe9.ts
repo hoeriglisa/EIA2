@@ -66,8 +66,6 @@ namespace aufgabe9 {
 
         let mouseclick: HTMLDivElement = <HTMLDivElement>_event.target;
 
-        mouseclick.style.backgroundColor = "green";
-
         theChosenLetter = mouseclick.id;
 
 
@@ -76,13 +74,19 @@ namespace aufgabe9 {
         for (let i: number = 0; i < divs.length; i++) {
             if (theChosenLetter != divs[i].id) {
                 divs[i].style.color = "pink";
+                divs[i].style.backgroundColor = "yellow";
+            } else {
+                divs[i].style.color = "pink";
+                divs[i].style.backgroundColor = "green";
             }
         }
+
+
     }
     //Set letters to paper    
     function insertLetters(_event: MouseEvent): void {
         let paperLetterBox: HTMLDivElement = document.createElement("div");
-        
+
         paperLetterBox.innerText = theChosenLetter;
         paperLetterBox.style.backgroundColor = "yellow";
         paperLetterBox.style.height = "42px";
@@ -92,11 +96,13 @@ namespace aufgabe9 {
         paperLetterBox.style.top = _event.pageY + "px";
         paperLetterBox.style.position = "absolute";
 
-        
+
         document.body.appendChild(paperLetterBox);
 
         let mouseClick: HTMLDivElement = <HTMLDivElement>_event.target;
     }
+
+
 
     function keyboardSelection(event: KeyboardEvent): void {
         if (event.key == "a" || event.key == "A") {
