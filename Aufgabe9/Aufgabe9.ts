@@ -108,6 +108,73 @@ namespace aufgabe9 {
         if (event.key == "a" || event.key == "A") {
             theChosenLetter = event.key;
         }
+        if (event.key == "b" || event.key == "B") {
+            theChosenLetter = event.key;
+        }
+        if (event.key == "c" || event.key == "C") {
+            theChosenLetter = event.key;
+        }
+        if (event.key == "e" || event.key == "E") {
+            theChosenLetter = event.key;
+        }
+        if (event.key == "f" || event.key == "F") {
+            theChosenLetter = event.key;
+        }
+        if (event.key == "g" || event.key == "G") {
+            theChosenLetter = event.key;
+        }
+        if (event.key == "h" || event.key == "H") {
+            theChosenLetter = event.key;
+        }
+        if (event.key == "i" || event.key == "I") {
+            theChosenLetter = event.key;
+        }
+        if (event.key == "j" || event.key == "J") {
+            theChosenLetter = event.key;
+        }
+        if (event.key == "k" || event.key == "K") {
+            theChosenLetter = event.key;
+        }
+        if (event.key == "l" || event.key == "L") {
+            theChosenLetter = event.key;
+        }
+        if (event.key == "m" || event.key == "M") {
+            theChosenLetter = event.key;
+        }
+        if (event.key == "n" || event.key == "N") {
+            theChosenLetter = event.key;
+        }
+        if (event.key == "o" || event.key == "O") {
+            theChosenLetter = event.key;
+        }
+        if (event.key == "p" || event.key == "P") {
+            theChosenLetter = event.key;
+        }
+        if (event.key == "q" || event.key == "Q") {
+            theChosenLetter = event.key;
+        }
+        if (event.key == "r" || event.key == "R") {
+            theChosenLetter = event.key;
+        }
+        if (event.key == "s" || event.key == "T") {
+            theChosenLetter = event.key;
+        }
+        if (event.key == "u" || event.key == "V") {
+            theChosenLetter = event.key;
+        }
+        if (event.key == "w" || event.key == "W") {
+            theChosenLetter = event.key;
+        }
+        if (event.key == "x" || event.key == "X") {
+            theChosenLetter = event.key;
+        }
+        if (event.key == "y" || event.key == "Y") {
+            theChosenLetter = event.key;
+        }
+        if (event.key == "z" || event.key == "Z") {
+            theChosenLetter = event.key;
+        }
+        
     }
 
 
