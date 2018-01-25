@@ -27,7 +27,7 @@ namespace SendData {
 
     function sendRequest(_color: string): void {
         let xhr: XMLHttpRequest = new XMLHttpRequest();
-        xhr.open("GET", "http://localhost:8100?color=" + _color, true);
+        xhr.open("GET", "http://localhost:5500?color=" + _color, true);
         //xhr.open("GET", "https://git.heroku.com/eia2-node-lisah.git?color=" + _color, true);
         xhr.addEventListener("readystatechange", handleStateChange);
         xhr.send();
