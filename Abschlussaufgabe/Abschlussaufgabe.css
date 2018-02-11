@@ -12,11 +12,60 @@
 	left: 28%;
 }
 
+#ButtonLeft{
+	width: 20%;
+	margin-left: 5%;
+}
+#ButtonRight {
+	width: 20%;
+	
+}
+
 canvas {
 	position: absolute;
 	width: 90%;
 	top: 5%;
 	left: 5%;
 	height: 60%;
+}
+
+@media(min-device-width: 500px){
+	#hintergrund{
+	width:80%;
+	}
+	#ButtonUp, #ButtonDown, #ButtonRight {
+	margin-left: -5%;}
+}
+
+@media (min-device-width: 650px){
+	#hintergrund {
+	width: 45%;}
+	#ButtonUp, #ButtonDown {
+	margin-left: -28%;}
+	#ButtonLeft{
+	margin-left: -20%;}
+	#ButtonRight{
+	margin-left: -30%;}
+	}
+}
+
+@media(min-device-width:1070px) {
+	#hintergrund{
+	width: 40%;}
+	#ButtonUp {
+	position: absolute;
+	top: 50%;
+	margin-left: -30%;}
+	#ButtonDown {
+	position: absolute;
+	margin-left: -30%;}
+	#ButtonLeft {
+	position: absolute;
+	margin-left: -22.3%;
+	width: 20%;}
+	#ButtonRight {
+	position: absolute;
+	margin-left: -32.5%;
+	width: 20%;}
 }
 

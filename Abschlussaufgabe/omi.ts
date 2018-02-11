@@ -2,8 +2,12 @@ namespace Abschlussaufgabe {
 
     export class Omi extends Semesteraufgabe {
 
-        constructor(_x: number, _y: number, _color: string) {
+        constructor(_x: number, _y: number, _color: string /**speedX: number, speedY: number, x: string, y: string**/) {
             super(_x, _y, _color);
+           /** this.speedX = speedX;
+            this.speedY = speedY;
+            this.x = x;
+            this.y = y;**/
         }
 
 
@@ -71,13 +75,31 @@ namespace Abschlussaufgabe {
             crc2.fill();
         }
 
+
         move(): void {
-            if (rightKey == true)) {
+            /**if (rightKey == true)) {
                 this.x += 20;
             };
             if (leftKey == true) {
-                this.x -= 20;
-            };
-        }
+                this.x -= 20;**/
+        };
     }
+    
+
+   /** function moveUp() {
+        canvas.speedY -= 1;
+    }
+
+    function moveDown() {
+        canvas.speedY += 1;
+    }
+
+    function moveLeft() {
+        canvas.speedX -= 1;
+    }
+    function moveRight() {
+        canvas.speedX += 1;
+    }**/
 }
+
+
