@@ -71,13 +71,13 @@ namespace Abschlussaufgabe {
             crc2.fill();
         }
 
-        /**move(): void {
+        move(): void {
             if (rightKey == true)) {
                 this.x += 20;
             };
             if (leftKey == true) {
                 this.x -= 20;
             };
-        }**/
+        }
     }
 }

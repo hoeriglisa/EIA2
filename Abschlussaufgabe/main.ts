@@ -1,6 +1,6 @@
 namespace Abschlussaufgabe {
     window.addEventListener("load", init);
-
+    document.addEventListener("keydown", pressingKey);
     export let crc2: CanvasRenderingContext2D;
     var image: ImageData;
     let abschlussaufgabe: Semesteraufgabe[] = [];
@@ -10,6 +10,7 @@ namespace Abschlussaufgabe {
         crc2 = canvas.getContext("2d");
         crc2.fillStyle = "green";
         crc2.fillRect(0, 0, 400, 300);
+        
 
 
         let n = 5;
@@ -48,6 +49,12 @@ namespace Abschlussaufgabe {
         window.setTimeout(animate, 20);
 
     }
+    
+    function pressingKey(_event: KeyboardEvent) {
+        if  (_event.keyCode == 40) {
+             downKey = true;
+             Omi.move();
+         };}
 // Was fehlt: Steuerung, Responsive Design, Eigenschaft des Einsammelns/Game Over
 
        }
