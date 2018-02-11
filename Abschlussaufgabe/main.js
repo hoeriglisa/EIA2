@@ -1,6 +1,7 @@
 var Abschlussaufgabe;
 (function (Abschlussaufgabe) {
     window.addEventListener("load", init);
+    document.addEventListener("keydown", pressingKey);
     var image;
     let abschlussaufgabe = [];
     function init() {
@@ -34,5 +35,22 @@ var Abschlussaufgabe;
         }
         window.setTimeout(animate, 20);
     }
+    function pressingKey(_event) {
+        switch (_event.keyCode) {
+            case 37:
+                alert("left");
+                break;
+            case 38:
+                alert("up");
+                break;
+            case 39:
+                alert("right");
+                break;
+            case 40:
+                alert("down");
+                break;
+        }
+    }
+    ;
 })(Abschlussaufgabe || (Abschlussaufgabe = {}));
 //# sourceMappingURL=main.js.map

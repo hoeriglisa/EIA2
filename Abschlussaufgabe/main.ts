@@ -10,7 +10,7 @@ namespace Abschlussaufgabe {
         crc2 = canvas.getContext("2d");
         crc2.fillStyle = "green";
         crc2.fillRect(0, 0, 400, 300);
-        
+
 
 
         let n = 5;
@@ -49,12 +49,34 @@ namespace Abschlussaufgabe {
         window.setTimeout(animate, 20);
 
     }
+
     
     function pressingKey(_event: KeyboardEvent) {
-        if  (_event.keyCode == 40) {
+        switch (_event.keyCode) {
+            case 37:
+                alert("left");
+                break;
+            case 38:
+                alert("up");
+                break;
+            case 39:
+                alert("right");
+                break;
+            case 40:
+                alert("down");
+                break;
+        }
+    };
+
+
+
+
+       /** if  (_event.keyCode == 40) {
              downKey = true;
              Omi.move();
          };}
 // Was fehlt: Steuerung, Responsive Design, Eigenschaft des Einsammelns/Game Over
 
-       }
+       }**/
+    
+    }
