@@ -1,6 +1,6 @@
 namespace Abschlussaufgabe {
     window.addEventListener("load", init);
-    document.addEventListener("keydown", pressingKey);
+    //document.addEventListener("keydown", pressingKey);
     export let crc2: CanvasRenderingContext2D;
     var image: ImageData;
     let abschlussaufgabe: Semesteraufgabe[] = [];
@@ -50,8 +50,13 @@ namespace Abschlussaufgabe {
 
     }
 
+    let rightButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("right");
+    rightButton.addEventListener("click", test);
     
-    function pressingKey(_event: KeyboardEvent) {
+    function test(): void {
+        alert("es erkennt den button - juhu!"); }
+    
+    /**function pressingKey(_event: KeyboardEvent) {
         switch (_event.keyCode) {
             case 37:
                 alert("left");
@@ -66,7 +71,7 @@ namespace Abschlussaufgabe {
                 alert("down");
                 break;
         }
-    };
+    };**/
 
 
 
