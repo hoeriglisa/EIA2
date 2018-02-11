@@ -39,7 +39,7 @@ namespace aufgabe9 {
         div.className = "Buchstaben";
 
         div.addEventListener("click", chooseLetterF);
-        document.body.appendChild(div);
+        document.body.appendChild(div); 
 
     }
 
@@ -66,13 +66,13 @@ namespace aufgabe9 {
 
         let mouseclick: HTMLDivElement = <HTMLDivElement>_event.target;
 
-        theChosenLetter = mouseclick.id;
+        theChosenLetter = mouseclick.id; // id vong diffelement was i han angeklickt
 
-
+//Array = node
         let divs: NodeListOf<HTMLDivElement> = <NodeListOf<HTMLDivElement>>document.getElementsByClassName("Buchstaben");
 
         for (let i: number = 0; i < divs.length; i++) {
-            if (theChosenLetter != divs[i].id) {
+            if (theChosenLetter != divs[i].id) { // Vergleicht ID mit dem aus der Liste
                 divs[i].style.color = "pink";
                 divs[i].style.backgroundColor = "yellow";
             } else {

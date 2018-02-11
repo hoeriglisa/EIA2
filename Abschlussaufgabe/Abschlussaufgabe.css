@@ -1,0 +1,22 @@
+#hintergrund {
+	position: absolute;
+	background-color: #CC1414;
+	width: 92%;
+	height: 90%;
+	margin: 2%;
+}
+
+#buttons {
+	position: absolute;
+	top: 70%;
+	left: 28%;
+}
+
+canvas {
+	position: absolute;
+	width: 90%;
+	top: 5%;
+	left: 5%;
+	height: 60%;
+}
+

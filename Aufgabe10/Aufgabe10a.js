@@ -168,7 +168,7 @@ var A10;
                 korb.getElementsByTagName("p")[i].remove(); //Wenn vorhanden Element löschen
                 gesamtpreis = gesamtpreis - parseInt(innerPreis); //Gesamtpreis bereinigen
             }
-            //Gesamtpreis p entfernen um später aktualisiert zurück einzufügen
+            //Gesamtpreis p entfernen um später aktualisiert zurück einzufügen aktuelles p 
             if (korb.getElementsByTagName("p")[i].id == "gesamtpreisid") {
                 korb.getElementsByTagName("p")[i].remove();
             }

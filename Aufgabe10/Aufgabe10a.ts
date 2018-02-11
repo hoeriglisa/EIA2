@@ -225,8 +225,8 @@ namespace A10 {
                 gesamtpreis = gesamtpreis - parseInt(innerPreis); //Gesamtpreis bereinigen
             }
 
-            //Gesamtpreis p entfernen um später aktualisiert zurück einzufügen
-            if (korb.getElementsByTagName("p")[i].id == "gesamtpreisid") {
+            //Gesamtpreis p entfernen um später aktualisiert zurück einzufügen aktuelles p 
+            if (korb.getElementsByTagName("p")[i].id  == "gesamtpreisid") {
                 korb.getElementsByTagName("p")[i].remove();
             }
         }
