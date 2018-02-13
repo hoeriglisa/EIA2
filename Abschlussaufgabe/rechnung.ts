@@ -42,14 +42,7 @@ namespace Abschlussaufgabe {
         }
 
         move(): void {
-            if (this.y > 583) {
-                this.y = 0;
-            }
-
-            this.y += Math.random();
-
-
-            this.draw();
+  
         }
 
 

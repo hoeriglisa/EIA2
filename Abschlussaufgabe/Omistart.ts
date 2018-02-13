@@ -1,6 +1,6 @@
 namespace Abschlussaufgabe {
 
-    export class Omi extends Semesteraufgabe {
+    export class Omistart extends Semesteraufgabe {
 
         constructor(_x: number, _y: number, _color: string /**speedX: number, speedY: number, x: string, y: string**/) {
             super(_x, _y, _color);
@@ -77,30 +77,10 @@ namespace Abschlussaufgabe {
 
 
         move(): void {
-            
-            /**if (rightKey == true)) {
-                this.x += 20;
-            };
-            if (leftKey == true) {
-                this.x -= 20;**/
-        };
+           }
     }
     
 
-   /** function moveUp() {
-        canvas.speedY -= 1;
-    }
-
-    function moveDown() {
-        canvas.speedY += 1;
-    }
-
-    function moveLeft() {
-        canvas.speedX -= 1;
-    }
-    function moveRight() {
-        canvas.speedX += 1;
-    }**/
 }
 
 

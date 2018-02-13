@@ -21,6 +21,7 @@
 	
 }
 
+
 canvas {
 	position: absolute;
 	width: 90%;
@@ -33,9 +34,14 @@ canvas {
 	#hintergrund{
 	width:80%;
 	}
+
 	#ButtonUp, #ButtonDown, #ButtonRight {
 	margin-left: -5%;}
+	#startButton { 
+	margin-left:-5%;}
+
 }
+	
 
 @media (min-device-width: 650px){
 	#hintergrund {
@@ -46,7 +52,9 @@ canvas {
 	margin-left: -20%;}
 	#ButtonRight{
 	margin-left: -30%;}
-	}
+	
+	#startButton {
+	margin-left: -30%;}
 }
 
 @media(min-device-width:1070px) {
