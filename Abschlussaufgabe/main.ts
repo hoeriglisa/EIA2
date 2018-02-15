@@ -1,6 +1,6 @@
 /** 
 Abschlussarbeit EIA
-Lisa San Martin H�rig
+Lisa San Martin Hörig
 Matrikelnr. 256060
 
 Hiermit versichere ich, dass ich den Code selbst geschrieben habe. **/
@@ -10,18 +10,20 @@ namespace Abschlussaufgabe {
     //document.addEventListener("keydown", pressingKey);
     export let crc2: CanvasRenderingContext2D;
     var image: ImageData;
-    let abschlussaufgabe: Semesteraufgabe[] = [];
+    let abschlussaufgabe: Semesteraufgabe[] = []; //-> Die Namen sind sehr ungünstig!! besser: let gameobjects = GameObject[]
     export let oma: Omi;
-    export let omaspeed: number = 10; // Verhindert m�hsames 1px bewegen
-    let zahn: Zahn;
-    let zaehne: Zahn[] = [];
+    export let omaspeed: number = 10; // Verhindert mühsames 1px bewegen
+    let zahn: Zahn; //-> redundant, wird nicht als globale Variable beötigt
+    let zaehne: Zahn[] = []; //-> wenn es schon gameobjects gibt, ist ein weiteres Array redundant und erzeugt nur Mehraufwand
     let zahnZahl: number = 5;
     export let omaHitbox: number = 30; // der Radius in dem Omi ein Ziel erreicht
     let zahncounter: any = 0; // Bei 5 dann ists gewonnen
     export let rechnungZahl: number = 15; // Anzahl an Rechnungen
-    export let rechnung: Rechnung;
-    export let rechnungen: Rechnung[] = [];
-    export let gamestatus: number = 0;
+    export let rechnung: Rechnung; //-> redundant, wird nicht als globale Variable benötigt
+    export let rechnungen: Rechnung[] = []; //-> wenn es schon gameobjects gibt, ist ein weiteres Array redundant und erzeugt nur Mehraufwand
+    export let gamestatus: number = 0; //-> hier ist ein lesbarer String schöner!!
+    
+     //-> also entweder das gameobjects-Array für alle machen oder ein zahn- und ein rechnung-Array...
 
     function init(): void {
         gamestatus = 0;
@@ -34,19 +36,19 @@ namespace Abschlussaufgabe {
 
         for (let i: number = 0; i < 1; i++) {
             oma = new Omi(200, 250, "#ffffff");
-            abschlussaufgabe.push(oma);
+            abschlussaufgabe.push(oma);  //-> da die Oma ein spezielles Objekt ist, würde ich sie nicht zu den anderen packen
         }
 
         for (let i: number = 0; i < zahnZahl; i++) {
             zahn = new Zahn(0 + Math.random() * 250, 0 + Math.random() * 200, "#ffffff");
-            zaehne[i] = zahn;
+            zaehne[i] = zahn;  //-> redundant
             abschlussaufgabe.push(zahn);
         }
 
 
         for (let i: number = 0; i < rechnungZahl; i++) {
             rechnung = new Rechnung(0 + Math.random() * 800, 0 + Math.random() * 600, "#ffffff");
-            rechnungen[i] = rechnung;
+            rechnungen[i] = rechnung; //-> redundant
             abschlussaufgabe.push(rechnung); //Haut rechnungen in den Array rein 
         }
         image = crc2.getImageData(0, 0, 400, 300);
@@ -64,13 +66,17 @@ namespace Abschlussaufgabe {
 
         for (let j: number = 0; j < rechnungZahl; j++) {
             if (rechnungen[j].y > 400) {
-                rechnungen[j].y = 0; // Wenn auf 400, werden auf 0 zur�ckgesetzt
+                rechnungen[j].y = 0; // Wenn auf 400, werden auf 0 zurückgesetzt
             }
 
             rechnungen[j].y += Math.random();
 
             let x: number;
             let y: number;
+             //-> besser der Oma beibringen zu prüfen, ob sie mit einem Objekt kollidiert! Dann kann man einfach schreiben
+             //-> if (oma.hits(rechnungen[j]))
+             //->   gameOver();
+             //-> und die hits-Methode der Oma kann auch bei den Zähnen wieder zum Einsatz kommen!!
             if (rechnungen[j].x < oma.x) {
                 x = oma.x - rechnungen[j].x;
             }
@@ -93,7 +99,7 @@ namespace Abschlussaufgabe {
         }
 
         if (gamestatus == 0) {
-            window.setTimeout(animate, 20); // Timer f�rs Animieren
+            window.setTimeout(animate, 20); // Timer fürs Animieren
         } else if (gamestatus == 1) {
             gameWin();
         } else if (gamestatus == 2) {
@@ -101,7 +107,7 @@ namespace Abschlussaufgabe {
         }
     }
 
-    //Steuerungsbuttons malen --> Buttonsteuerung um den Gameboylook zu unterst�tzen :-)
+    //Steuerungsbuttons malen --> Buttonsteuerung um den Gameboylook zu unterstützen :-)
     function buttondraw(): void {
         let buttonup: HTMLButtonElement = document.createElement("button");
         buttonup.innerText = "UP";
@@ -111,7 +117,7 @@ namespace Abschlussaufgabe {
         buttonup.style.height = "8%";
         buttonup.style.width = "25%";
         buttonup.id = "ButtonUp";
-        buttonup.addEventListener("click", omamoveUp); //Reagieren aufs Klicken, f�hren die omamove+Richtung Funktion aus
+        buttonup.addEventListener("click", omamoveUp); //Reagieren aufs Klicken, führen die omamove+Richtung Funktion aus
         document.body.appendChild(buttonup);
 
         let buttonleft: HTMLButtonElement = document.createElement("button");
@@ -147,7 +153,7 @@ namespace Abschlussaufgabe {
 
     }
 
-    // Z�hne einsammeln
+    // Zähne einsammeln
     function zahnSammeln() {
         for (let i: number = 0; i < zahnZahl; i++) {
             let x: number;
@@ -165,7 +171,7 @@ namespace Abschlussaufgabe {
                 y = (oma.y - zaehne[i].y) * (-1);
             }
 
-            if (x < omaHitbox && y < omaHitbox) {  //Hitbox = Radius bei dem eine Ber�hrung als "Hit" gez�hlt wird
+            if (x < omaHitbox && y < omaHitbox) {  //Hitbox = Radius bei dem eine Berührung als "Hit" gezählt wird
                 zaehne[i].x = 5000; // Wird auf die x Koordinate 5000 gesetzt, somit ist es aus dem Bild.
                 zaehne[i].y = 5000;
                 zahncounter += 1; //Wenn eingesammelt dann +1 Zahn
@@ -223,7 +229,7 @@ namespace Abschlussaufgabe {
         startbutton.style.height = "4%";
         startbutton.style.width = "10%";
         startbutton.id = "startButton";
-        startbutton.addEventListener("click", init); //Reagieren aufs Klicken, f�hren die omamove+Richtung Funktion aus
+        startbutton.addEventListener("click", init); //Reagieren aufs Klicken, führen die omamove+Richtung Funktion aus
         document.body.appendChild(startbutton);
     }
 
@@ -238,6 +244,8 @@ namespace Abschlussaufgabe {
         for (let j: number = 0; j < rechnungZahl; j++) {
             rechnungen.splice(j, 1);
         }
+
+         //-> um die Arrays zu löschen genügt zaehne = [] und rechnungen = []
 
         let canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0];
         crc2 = canvas.getContext("2d");
@@ -341,8 +349,10 @@ namespace Abschlussaufgabe {
         for (let j: number = 0; j < rechnungZahl; j++) {
             rechnungen.splice(j, 1);
         }
+         //-> um die Arrays zu löschen genügt zaehne = [] und rechnungen = []
 
-        let canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0];
+        let canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0]; 
+         //-> sich den canvas in einer globalen Variable zu merken, das wäre sinnvoll...!
         crc2 = canvas.getContext("2d");
         crc2.clearRect(0, 0, 400, 300);
         crc2.fillStyle = "black";
