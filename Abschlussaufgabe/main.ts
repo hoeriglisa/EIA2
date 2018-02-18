@@ -13,17 +13,20 @@ namespace Abschlussaufgabe {
     let abschlussaufgabe: Semesteraufgabe[] = [];
     export let oma: Omi;
     export let omaspeed: number = 10; // Verhindert mühsames 1px bewegen
-    let zahn: Zahn;
     let zaehne: Zahn[] = [];
     let zahnZahl: number = 5;
-    export let omaHitbox: number = 30; // der Radius in dem Omi ein Ziel erreicht
+    export let omaHitbox: number = 25; // der Radius in dem Omi ein Ziel erreicht
     let zahncounter: any = 0; // Bei 5 dann ists gewonnen
     export let rechnungZahl: number = 15; // Anzahl an Rechnungen
-    export let rechnung: Rechnung;
     export let rechnungen: Rechnung[] = [];
     export let gamestatus: number = 0;
-
+    let winstatus: number = 0;
+    
     function init(): void {
+        let neustartButton: HTMLElement = document.getElementById("neustartButton");
+        neustartButton.style.display = "none";
+
+        winstatus = 0;  
         gamestatus = 0;
         let canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0];
         crc2 = canvas.getContext("2d");
@@ -38,22 +41,22 @@ namespace Abschlussaufgabe {
         }
 
         for (let i: number = 0; i < zahnZahl; i++) {
-            zahn = new Zahn(0 + Math.random() * 250, 0 + Math.random() * 200, "#ffffff");
-            zaehne[i] = zahn;
-            abschlussaufgabe.push(zahn);
+            zaehne[i] = new Zahn(0 + Math.random() * 350, 0 + Math.random() * 250, "#ffffff");
+            abschlussaufgabe.push(zaehne[i]);
         }
 
 
         for (let i: number = 0; i < rechnungZahl; i++) {
-            rechnung = new Rechnung(0 + Math.random() * 800, 0 + Math.random() * 600, "#ffffff");
-            rechnungen[i] = rechnung;
-            abschlussaufgabe.push(rechnung); //Haut rechnungen in den Array rein 
+            rechnungen[i] = new Rechnung(0 + Math.random() * 400, 0 + Math.random() * -500, "#ffffff");
+            abschlussaufgabe.push(rechnungen[i]); //Haut rechnungen in den Array rein 
         }
         image = crc2.getImageData(0, 0, 400, 300);
+        
         animate();
     }
 
     function animate(): void { // Animiert die fliegenden Rechnungen
+        if (gamestatus == 0) {
         crc2.putImageData(image, 0, 0);
 
         for (let i: number = 0; i < abschlussaufgabe.length; i++) {
@@ -63,8 +66,8 @@ namespace Abschlussaufgabe {
         }
 
         for (let j: number = 0; j < rechnungZahl; j++) {
-            if (rechnungen[j].y > 400) {
-                rechnungen[j].y = 0; // Wenn auf 400, werden auf 0 zurückgesetzt
+            if (abschlussaufgabe[j].y > 450) {
+                rechnungen[j].y = -40; // Wenn auf 400, werden auf unter 0 zurückgesetzt
             }
 
             rechnungen[j].y += Math.random();
@@ -92,17 +95,30 @@ namespace Abschlussaufgabe {
             rechnungen[j].draw();
         }
 
-        if (gamestatus == 0) {
             window.setTimeout(animate, 20); // Timer fürs Animieren
-        } else if (gamestatus == 1) {
+            
+       }else if (gamestatus == 1) {
             gameWin();
         } else if (gamestatus == 2) {
-            gameOver();
+           gameOver();
+        }
+    }
+    
+    function winanimate(): void { // Animiert die fliegenden Rechnungen
+        if (winstatus == 1) {
+        crc2.putImageData(image, 0, 0);
+
+        for (let i: number = 0; i < abschlussaufgabe.length; i++) {
+            let s: Semesteraufgabe = abschlussaufgabe[i];
+            s.update(); //superklasse geupdated
+        }
+            window.setTimeout(winanimate, 20); // Timer fürs Animieren
         }
     }
 
     //Steuerungsbuttons malen --> Buttonsteuerung um den Gameboylook zu unterstützen :-)
     function buttondraw(): void {
+        
         let buttonup: HTMLButtonElement = document.createElement("button");
         buttonup.innerText = "UP";
         buttonup.style.position = "absolute";
@@ -146,7 +162,25 @@ namespace Abschlussaufgabe {
         document.body.appendChild(buttondown);
 
     }
+    
+    function buttonRemove() {
+        let buttonUp: HTMLElement = document.getElementById("ButtonUp");
+        buttonUp.parentNode.removeChild(buttonUp);
+        
+        let buttonDown: HTMLElement = document.getElementById("ButtonDown");
+        buttonDown.parentNode.removeChild(buttonDown);
+        
+        let buttonRight: HTMLElement = document.getElementById("ButtonRight");
+        buttonRight.parentNode.removeChild(buttonRight);
+        
+        let buttonLeft: HTMLElement = document.getElementById("ButtonLeft");
+        buttonLeft.parentNode.removeChild(buttonLeft);
+        
+        let startbutton: HTMLElement = document.getElementById("startButton");
+        startbutton.parentNode.removeChild(startbutton);
 
+        }
+    
     // Zähne einsammeln
     function zahnSammeln() {
         for (let i: number = 0; i < zahnZahl; i++) {
@@ -211,6 +245,18 @@ namespace Abschlussaufgabe {
         crc2.fillText("Omi hat ihr Gebiss verloren", 130, 100);
         crc2.fillText("Hilf ihr, die Zaehne einzusammeln und den Rechnungen auszuweichen!", 20, 150);
         startButton(); // Startbutton zeichnen
+        
+        let neustartbutton: HTMLButtonElement = document.createElement("button");
+        neustartbutton.innerText = "NEUSTART";
+        neustartbutton.style.position = "absolute";
+        neustartbutton.style.top = "65%";
+        neustartbutton.style.left = "17%";
+        neustartbutton.style.height = "4%";
+        neustartbutton.style.width = "10%";
+        neustartbutton.id = "neustartButton";
+        neustartbutton.style.display = "none";
+        neustartbutton.addEventListener("click", init); //Reagieren aufs Klicken, führen die omamove+Richtung Funktion aus
+        document.body.appendChild(neustartbutton);
     }
 
     //Startbutton
@@ -226,19 +272,23 @@ namespace Abschlussaufgabe {
         startbutton.addEventListener("click", init); //Reagieren aufs Klicken, führen die omamove+Richtung Funktion aus
         document.body.appendChild(startbutton);
     }
-
+    
+    function neustartButton(): void {
+        buttonRemove();
+        let neustartButton: HTMLElement = document.getElementById("neustartButton");
+        neustartButton.style.display = "inline";
+    }
 
     // Game Over Funktion
     export function gameOver(): void {
 
         gamestatus = 2;
-        for (let i: number = 0; i < zahnZahl; i++) {
-            zaehne.splice(i, 1);
-        }
-        for (let j: number = 0; j < rechnungZahl; j++) {
-            rechnungen.splice(j, 1);
-        }
-
+        abschlussaufgabe = [];
+        zaehne = [];
+        rechnungen = [];
+        zahncounter = 0;
+        document.getElementById("zahncounter").innerHTML = "Zaehne: " + zahncounter + " / 5";
+        
         let canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0];
         crc2 = canvas.getContext("2d");
         crc2.clearRect(0, 0, 400, 300);
@@ -319,9 +369,10 @@ namespace Abschlussaufgabe {
         crc2.fillStyle = "pink";
         crc2.fill();
         crc2.closePath();
-        startButton();
+        
+        neustartButton();
 
-        let g = 25;
+       //let g = 25;
         /**for (let i: number = 0; i < g; i++) {
             let r: Rechnung = new Rechnung(0 + Math.random() * 800, 0 + Math.random() * 600, "#ffffff");
             abschlussaufgabe.push(r); //Haut on in den Array rein 
@@ -333,19 +384,18 @@ namespace Abschlussaufgabe {
 
     // Winscreen
     function gameWin(): void {
-
+      
         gamestatus = 1;
-        for (let i: number = 0; i < zahnZahl; i++) {
-            zaehne.splice(i, 1);
-        }
-        for (let j: number = 0; j < rechnungZahl; j++) {
-            rechnungen.splice(j, 1);
-        }
-
+        abschlussaufgabe = [];
+        zaehne = [];
+        rechnungen = [];
+        zahncounter = 0;
+        document.getElementById("zahncounter").innerHTML = "Zaehne: " + zahncounter + " / 5";
+        
         let canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0];
         crc2 = canvas.getContext("2d");
         crc2.clearRect(0, 0, 400, 300);
-        crc2.fillStyle = "black";
+        crc2.fillStyle = "green";
         crc2.fillRect(0, 0, 400, 300);
 
 
@@ -425,7 +475,7 @@ namespace Abschlussaufgabe {
         crc2.closePath();
 
 
-        startButton();
+        neustartButton();
 
         let konfettiAnzahl: number = 100;
 
@@ -434,6 +484,9 @@ namespace Abschlussaufgabe {
             abschlussaufgabe.push(k); //Haut on in den Array rein 
         }
         image = crc2.getImageData(0, 0, 400, 300);
+        winstatus = 1;
+        winanimate();
+        
     }
 
 

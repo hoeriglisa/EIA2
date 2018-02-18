@@ -10,15 +10,18 @@ var Abschlussaufgabe;
     var image;
     let abschlussaufgabe = [];
     Abschlussaufgabe.omaspeed = 10; // Verhindert m�hsames 1px bewegen
-    let zahn;
     let zaehne = [];
     let zahnZahl = 5;
-    Abschlussaufgabe.omaHitbox = 30; // der Radius in dem Omi ein Ziel erreicht
+    Abschlussaufgabe.omaHitbox = 25; // der Radius in dem Omi ein Ziel erreicht
     let zahncounter = 0; // Bei 5 dann ists gewonnen
     Abschlussaufgabe.rechnungZahl = 15; // Anzahl an Rechnungen
     Abschlussaufgabe.rechnungen = [];
     Abschlussaufgabe.gamestatus = 0;
+    let winstatus = 0;
     function init() {
+        let neustartButton = document.getElementById("neustartButton");
+        neustartButton.style.display = "none";
+        winstatus = 0;
         Abschlussaufgabe.gamestatus = 0;
         let canvas = document.getElementsByTagName("canvas")[0];
         Abschlussaufgabe.crc2 = canvas.getContext("2d");
@@ -30,49 +33,47 @@ var Abschlussaufgabe;
             abschlussaufgabe.push(Abschlussaufgabe.oma);
         }
         for (let i = 0; i < zahnZahl; i++) {
-            zahn = new Abschlussaufgabe.Zahn(0 + Math.random() * 250, 0 + Math.random() * 200, "#ffffff");
-            zaehne[i] = zahn;
-            abschlussaufgabe.push(zahn);
+            zaehne[i] = new Abschlussaufgabe.Zahn(0 + Math.random() * 350, 0 + Math.random() * 250, "#ffffff");
+            abschlussaufgabe.push(zaehne[i]);
         }
         for (let i = 0; i < Abschlussaufgabe.rechnungZahl; i++) {
-            Abschlussaufgabe.rechnung = new Abschlussaufgabe.Rechnung(0 + Math.random() * 800, 0 + Math.random() * 600, "#ffffff");
-            Abschlussaufgabe.rechnungen[i] = Abschlussaufgabe.rechnung;
-            abschlussaufgabe.push(Abschlussaufgabe.rechnung); //Haut rechnungen in den Array rein 
+            Abschlussaufgabe.rechnungen[i] = new Abschlussaufgabe.Rechnung(0 + Math.random() * 400, 0 + Math.random() * -500, "#ffffff");
+            abschlussaufgabe.push(Abschlussaufgabe.rechnungen[i]); //Haut rechnungen in den Array rein 
         }
         image = Abschlussaufgabe.crc2.getImageData(0, 0, 400, 300);
         animate();
     }
     function animate() {
-        Abschlussaufgabe.crc2.putImageData(image, 0, 0);
-        for (let i = 0; i < abschlussaufgabe.length; i++) {
-            let s = abschlussaufgabe[i];
-            s.update(); //superklasse geupdated
-        }
-        for (let j = 0; j < Abschlussaufgabe.rechnungZahl; j++) {
-            if (Abschlussaufgabe.rechnungen[j].y > 400) {
-                Abschlussaufgabe.rechnungen[j].y = 0; // Wenn auf 400, werden auf 0 zur�ckgesetzt
-            }
-            Abschlussaufgabe.rechnungen[j].y += Math.random();
-            let x;
-            let y;
-            if (Abschlussaufgabe.rechnungen[j].x < Abschlussaufgabe.oma.x) {
-                x = Abschlussaufgabe.oma.x - Abschlussaufgabe.rechnungen[j].x;
-            }
-            if (Abschlussaufgabe.rechnungen[j].x > Abschlussaufgabe.oma.x) {
-                x = (Abschlussaufgabe.oma.x - Abschlussaufgabe.rechnungen[j].x) * (-1);
-            }
-            if (Abschlussaufgabe.rechnungen[j].y < Abschlussaufgabe.oma.y) {
-                y = Abschlussaufgabe.oma.y - Abschlussaufgabe.rechnungen[j].y;
-            }
-            if (Abschlussaufgabe.rechnungen[j].y > Abschlussaufgabe.oma.y) {
-                y = (Abschlussaufgabe.oma.y - Abschlussaufgabe.rechnungen[j].y) * (-1);
-            }
-            if (x < Abschlussaufgabe.omaHitbox && y < Abschlussaufgabe.omaHitbox) {
-                gameOver();
-            }
-            Abschlussaufgabe.rechnungen[j].draw();
-        }
         if (Abschlussaufgabe.gamestatus == 0) {
+            Abschlussaufgabe.crc2.putImageData(image, 0, 0);
+            for (let i = 0; i < abschlussaufgabe.length; i++) {
+                let s = abschlussaufgabe[i];
+                s.update(); //superklasse geupdated
+            }
+            for (let j = 0; j < Abschlussaufgabe.rechnungZahl; j++) {
+                if (abschlussaufgabe[j].y > 450) {
+                    Abschlussaufgabe.rechnungen[j].y = -40; // Wenn auf 400, werden auf unter 0 zur�ckgesetzt
+                }
+                Abschlussaufgabe.rechnungen[j].y += Math.random();
+                let x;
+                let y;
+                if (Abschlussaufgabe.rechnungen[j].x < Abschlussaufgabe.oma.x) {
+                    x = Abschlussaufgabe.oma.x - Abschlussaufgabe.rechnungen[j].x;
+                }
+                if (Abschlussaufgabe.rechnungen[j].x > Abschlussaufgabe.oma.x) {
+                    x = (Abschlussaufgabe.oma.x - Abschlussaufgabe.rechnungen[j].x) * (-1);
+                }
+                if (Abschlussaufgabe.rechnungen[j].y < Abschlussaufgabe.oma.y) {
+                    y = Abschlussaufgabe.oma.y - Abschlussaufgabe.rechnungen[j].y;
+                }
+                if (Abschlussaufgabe.rechnungen[j].y > Abschlussaufgabe.oma.y) {
+                    y = (Abschlussaufgabe.oma.y - Abschlussaufgabe.rechnungen[j].y) * (-1);
+                }
+                if (x < Abschlussaufgabe.omaHitbox && y < Abschlussaufgabe.omaHitbox) {
+                    gameOver();
+                }
+                Abschlussaufgabe.rechnungen[j].draw();
+            }
             window.setTimeout(animate, 20); // Timer f�rs Animieren
         }
         else if (Abschlussaufgabe.gamestatus == 1) {
@@ -80,6 +81,16 @@ var Abschlussaufgabe;
         }
         else if (Abschlussaufgabe.gamestatus == 2) {
             gameOver();
+        }
+    }
+    function winanimate() {
+        if (winstatus == 1) {
+            Abschlussaufgabe.crc2.putImageData(image, 0, 0);
+            for (let i = 0; i < abschlussaufgabe.length; i++) {
+                let s = abschlussaufgabe[i];
+                s.update(); //superklasse geupdated
+            }
+            window.setTimeout(winanimate, 20); // Timer f�rs Animieren
         }
     }
     //Steuerungsbuttons malen --> Buttonsteuerung um den Gameboylook zu unterst�tzen :-)
@@ -122,6 +133,18 @@ var Abschlussaufgabe;
         buttondown.id = "ButtonRight";
         buttondown.addEventListener("click", omamoveRight);
         document.body.appendChild(buttondown);
+    }
+    function buttonRemove() {
+        let buttonUp = document.getElementById("ButtonUp");
+        buttonUp.parentNode.removeChild(buttonUp);
+        let buttonDown = document.getElementById("ButtonDown");
+        buttonDown.parentNode.removeChild(buttonDown);
+        let buttonRight = document.getElementById("ButtonRight");
+        buttonRight.parentNode.removeChild(buttonRight);
+        let buttonLeft = document.getElementById("ButtonLeft");
+        buttonLeft.parentNode.removeChild(buttonLeft);
+        let startbutton = document.getElementById("startButton");
+        startbutton.parentNode.removeChild(startbutton);
     }
     // Z�hne einsammeln
     function zahnSammeln() {
@@ -180,6 +203,17 @@ var Abschlussaufgabe;
         Abschlussaufgabe.crc2.fillText("Omi hat ihr Gebiss verloren", 130, 100);
         Abschlussaufgabe.crc2.fillText("Hilf ihr, die Zaehne einzusammeln und den Rechnungen auszuweichen!", 20, 150);
         startButton(); // Startbutton zeichnen
+        let neustartbutton = document.createElement("button");
+        neustartbutton.innerText = "NEUSTART";
+        neustartbutton.style.position = "absolute";
+        neustartbutton.style.top = "65%";
+        neustartbutton.style.left = "17%";
+        neustartbutton.style.height = "4%";
+        neustartbutton.style.width = "10%";
+        neustartbutton.id = "neustartButton";
+        neustartbutton.style.display = "none";
+        neustartbutton.addEventListener("click", init); //Reagieren aufs Klicken, f�hren die omamove+Richtung Funktion aus
+        document.body.appendChild(neustartbutton);
     }
     //Startbutton
     function startButton() {
@@ -194,15 +228,19 @@ var Abschlussaufgabe;
         startbutton.addEventListener("click", init); //Reagieren aufs Klicken, f�hren die omamove+Richtung Funktion aus
         document.body.appendChild(startbutton);
     }
+    function neustartButton() {
+        buttonRemove();
+        let neustartButton = document.getElementById("neustartButton");
+        neustartButton.style.display = "inline";
+    }
     // Game Over Funktion
     function gameOver() {
         Abschlussaufgabe.gamestatus = 2;
-        for (let i = 0; i < zahnZahl; i++) {
-            zaehne.splice(i, 1);
-        }
-        for (let j = 0; j < Abschlussaufgabe.rechnungZahl; j++) {
-            Abschlussaufgabe.rechnungen.splice(j, 1);
-        }
+        abschlussaufgabe = [];
+        zaehne = [];
+        Abschlussaufgabe.rechnungen = [];
+        zahncounter = 0;
+        document.getElementById("zahncounter").innerHTML = "Zaehne: " + zahncounter + " / 5";
         let canvas = document.getElementsByTagName("canvas")[0];
         Abschlussaufgabe.crc2 = canvas.getContext("2d");
         Abschlussaufgabe.crc2.clearRect(0, 0, 400, 300);
@@ -273,8 +311,8 @@ var Abschlussaufgabe;
         Abschlussaufgabe.crc2.fillStyle = "pink";
         Abschlussaufgabe.crc2.fill();
         Abschlussaufgabe.crc2.closePath();
-        startButton();
-        let g = 25;
+        neustartButton();
+        //let g = 25;
         /**for (let i: number = 0; i < g; i++) {
             let r: Rechnung = new Rechnung(0 + Math.random() * 800, 0 + Math.random() * 600, "#ffffff");
             abschlussaufgabe.push(r); //Haut on in den Array rein
@@ -286,16 +324,15 @@ var Abschlussaufgabe;
     // Winscreen
     function gameWin() {
         Abschlussaufgabe.gamestatus = 1;
-        for (let i = 0; i < zahnZahl; i++) {
-            zaehne.splice(i, 1);
-        }
-        for (let j = 0; j < Abschlussaufgabe.rechnungZahl; j++) {
-            Abschlussaufgabe.rechnungen.splice(j, 1);
-        }
+        abschlussaufgabe = [];
+        zaehne = [];
+        Abschlussaufgabe.rechnungen = [];
+        zahncounter = 0;
+        document.getElementById("zahncounter").innerHTML = "Zaehne: " + zahncounter + " / 5";
         let canvas = document.getElementsByTagName("canvas")[0];
         Abschlussaufgabe.crc2 = canvas.getContext("2d");
         Abschlussaufgabe.crc2.clearRect(0, 0, 400, 300);
-        Abschlussaufgabe.crc2.fillStyle = "black";
+        Abschlussaufgabe.crc2.fillStyle = "green";
         Abschlussaufgabe.crc2.fillRect(0, 0, 400, 300);
         Abschlussaufgabe.crc2.font = "Arial";
         Abschlussaufgabe.crc2.fillStyle = "white";
@@ -362,13 +399,15 @@ var Abschlussaufgabe;
         Abschlussaufgabe.crc2.fillStyle = "pink";
         Abschlussaufgabe.crc2.fill();
         Abschlussaufgabe.crc2.closePath();
-        startButton();
+        neustartButton();
         let konfettiAnzahl = 100;
         for (let i = 0; i < konfettiAnzahl; i++) {
             let k = new Abschlussaufgabe.Konfetti(0 + Math.random() * 400, 0 + Math.random() * 300, "red");
             abschlussaufgabe.push(k); //Haut on in den Array rein 
         }
         image = Abschlussaufgabe.crc2.getImageData(0, 0, 400, 300);
+        winstatus = 1;
+        winanimate();
     }
 })(Abschlussaufgabe || (Abschlussaufgabe = {}));
 //# sourceMappingURL=main.js.map
