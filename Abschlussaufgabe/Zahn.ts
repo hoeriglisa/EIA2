@@ -25,9 +25,7 @@ namespace Abschlussaufgabe {
             crc2.fillStyle = "white";
             crc2.fill();
         }
-        move(): void {
-         
-        }
+       
 
     }
 

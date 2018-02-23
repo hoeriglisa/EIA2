@@ -20,8 +20,6 @@ var Abschlussaufgabe;
             Abschlussaufgabe.crc2.fillStyle = "white";
             Abschlussaufgabe.crc2.fill();
         }
-        move() {
-        }
     }
     Abschlussaufgabe.Zahn = Zahn;
 })(Abschlussaufgabe || (Abschlussaufgabe = {}));

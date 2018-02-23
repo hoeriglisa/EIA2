@@ -33,8 +33,6 @@ var Abschlussaufgabe;
             Abschlussaufgabe.crc2.fillStyle = "black";
             Abschlussaufgabe.crc2.fill();
         }
-        move() {
-        }
     }
     Abschlussaufgabe.Rechnung = Rechnung;
 })(Abschlussaufgabe || (Abschlussaufgabe = {}));

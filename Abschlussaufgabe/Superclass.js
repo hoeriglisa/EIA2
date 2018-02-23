@@ -8,11 +8,8 @@ var Abschlussaufgabe;
         }
         update() {
             this.draw();
-            this.move();
         }
         draw() { }
-        ;
-        move() { }
         ;
     }
     Abschlussaufgabe.Semesteraufgabe = Semesteraufgabe;

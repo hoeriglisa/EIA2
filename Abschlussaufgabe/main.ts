@@ -3,11 +3,10 @@ Abschlussarbeit EIA
 Lisa San Martin Hörig
 Matrikelnr. 256060
 
-Hiermit versichere ich, dass ich den Code selbst geschrieben habe. **/
+Hiermit versichere ich, dass ich den Code selbst geschrieben habe. Er wurde nicht kopiert und nicht diktiert **/
 
 namespace Abschlussaufgabe {
     window.addEventListener("load", startBildschirm);
-    //document.addEventListener("keydown", pressingKey);
     export let crc2: CanvasRenderingContext2D;
     var image: ImageData;
     let abschlussaufgabe: Semesteraufgabe[] = [];
@@ -67,7 +66,7 @@ namespace Abschlussaufgabe {
 
         for (let j: number = 0; j < rechnungZahl; j++) {
             if (abschlussaufgabe[j].y > 450) {
-                rechnungen[j].y = -40; // Wenn auf 400, werden auf unter 0 zurückgesetzt
+                rechnungen[j].y = -40; // Wenn auf 450, werden auf unter 0 zurückgesetzt
             }
 
             rechnungen[j].y += Math.random();
@@ -162,7 +161,7 @@ namespace Abschlussaufgabe {
         document.body.appendChild(buttondown);
 
     }
-    
+    // Entfernt die Buttons um den Neustartbutton zu erzeugen
     function buttonRemove() {
         let buttonUp: HTMLElement = document.getElementById("ButtonUp");
         buttonUp.parentNode.removeChild(buttonUp);
@@ -273,6 +272,7 @@ namespace Abschlussaufgabe {
         document.body.appendChild(startbutton);
     }
     
+    // Neustartbutton 
     function neustartButton(): void {
         buttonRemove();
         let neustartButton: HTMLElement = document.getElementById("neustartButton");
@@ -372,14 +372,6 @@ namespace Abschlussaufgabe {
         
         neustartButton();
 
-       //let g = 25;
-        /**for (let i: number = 0; i < g; i++) {
-            let r: Rechnung = new Rechnung(0 + Math.random() * 800, 0 + Math.random() * 600, "#ffffff");
-            abschlussaufgabe.push(r); //Haut on in den Array rein 
-        }
-        image = crc2.getImageData(0, 0, 400, 300);
-        animate();*/
-
     }
 
     // Winscreen
@@ -477,12 +469,6 @@ namespace Abschlussaufgabe {
 
         neustartButton();
 
-        let konfettiAnzahl: number = 100;
-
-        for (let i: number = 0; i < konfettiAnzahl; i++) {
-            let k: Konfetti = new Konfetti(0 + Math.random() * 400, 0 + Math.random() * 300, "red");
-            abschlussaufgabe.push(k); //Haut on in den Array rein 
-        }
         image = crc2.getImageData(0, 0, 400, 300);
         winstatus = 1;
         winanimate();

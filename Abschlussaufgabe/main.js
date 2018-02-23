@@ -3,7 +3,7 @@ Abschlussarbeit EIA
 Lisa San Martin H�rig
 Matrikelnr. 256060
 
-Hiermit versichere ich, dass ich den Code selbst geschrieben habe. **/
+Hiermit versichere ich, dass ich den Code selbst geschrieben habe. Er wurde nicht kopiert und nicht diktiert **/
 var Abschlussaufgabe;
 (function (Abschlussaufgabe) {
     window.addEventListener("load", startBildschirm);
@@ -52,7 +52,7 @@ var Abschlussaufgabe;
             }
             for (let j = 0; j < Abschlussaufgabe.rechnungZahl; j++) {
                 if (abschlussaufgabe[j].y > 450) {
-                    Abschlussaufgabe.rechnungen[j].y = -40; // Wenn auf 400, werden auf unter 0 zur�ckgesetzt
+                    Abschlussaufgabe.rechnungen[j].y = -40; // Wenn auf 450, werden auf unter 0 zur�ckgesetzt
                 }
                 Abschlussaufgabe.rechnungen[j].y += Math.random();
                 let x;
@@ -134,6 +134,7 @@ var Abschlussaufgabe;
         buttondown.addEventListener("click", omamoveRight);
         document.body.appendChild(buttondown);
     }
+    // Entfernt die Buttons um den Neustartbutton zu erzeugen
     function buttonRemove() {
         let buttonUp = document.getElementById("ButtonUp");
         buttonUp.parentNode.removeChild(buttonUp);
@@ -228,6 +229,7 @@ var Abschlussaufgabe;
         startbutton.addEventListener("click", init); //Reagieren aufs Klicken, f�hren die omamove+Richtung Funktion aus
         document.body.appendChild(startbutton);
     }
+    // Neustartbutton 
     function neustartButton() {
         buttonRemove();
         let neustartButton = document.getElementById("neustartButton");
@@ -312,13 +314,6 @@ var Abschlussaufgabe;
         Abschlussaufgabe.crc2.fill();
         Abschlussaufgabe.crc2.closePath();
         neustartButton();
-        //let g = 25;
-        /**for (let i: number = 0; i < g; i++) {
-            let r: Rechnung = new Rechnung(0 + Math.random() * 800, 0 + Math.random() * 600, "#ffffff");
-            abschlussaufgabe.push(r); //Haut on in den Array rein
-        }
-        image = crc2.getImageData(0, 0, 400, 300);
-        animate();*/
     }
     Abschlussaufgabe.gameOver = gameOver;
     // Winscreen
@@ -400,11 +395,6 @@ var Abschlussaufgabe;
         Abschlussaufgabe.crc2.fill();
         Abschlussaufgabe.crc2.closePath();
         neustartButton();
-        let konfettiAnzahl = 100;
-        for (let i = 0; i < konfettiAnzahl; i++) {
-            let k = new Abschlussaufgabe.Konfetti(0 + Math.random() * 400, 0 + Math.random() * 300, "red");
-            abschlussaufgabe.push(k); //Haut on in den Array rein 
-        }
         image = Abschlussaufgabe.crc2.getImageData(0, 0, 400, 300);
         winstatus = 1;
         winanimate();

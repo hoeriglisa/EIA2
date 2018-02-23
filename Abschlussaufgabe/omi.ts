@@ -76,31 +76,15 @@ namespace Abschlussaufgabe {
         }
 
 
-        move(): void {
-            
-            /**if (rightKey == true)) {
-                this.x += 20;
-            };
-            if (leftKey == true) {
-                this.x -= 20;**/
+       /** Hier könnte auch die move Funktion von Oma als Erweiterung der Subklasse stehen.
+        Als Superklasse hätte sie wenig Sinn gemacht, da sich die Zähne nicht bewegen. 
+        Da dies jedoch nicht funktioniert hat, habe ich sie in die main Datei verpackt.
+       **/
         };
     }
     
 
-   /** function moveUp() {
-        canvas.speedY -= 1;
-    }
 
-    function moveDown() {
-        canvas.speedY += 1;
-    }
 
-    function moveLeft() {
-        canvas.speedX -= 1;
-    }
-    function moveRight() {
-        canvas.speedX += 1;
-    }**/
-}
 
 

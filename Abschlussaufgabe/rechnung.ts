@@ -41,9 +41,7 @@ namespace Abschlussaufgabe {
             crc2.fill();
         }
 
-        move(): void {
-  
-        }
+     
 
 
     }

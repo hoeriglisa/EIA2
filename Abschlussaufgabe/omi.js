@@ -64,15 +64,8 @@ var Abschlussaufgabe;
             Abschlussaufgabe.crc2.fillStyle = "black";
             Abschlussaufgabe.crc2.fill();
         }
-        move() {
-            /**if (rightKey == true)) {
-                this.x += 20;
-            };
-            if (leftKey == true) {
-                this.x -= 20;**/
-        }
-        ;
     }
     Abschlussaufgabe.Omi = Omi;
+    ;
 })(Abschlussaufgabe || (Abschlussaufgabe = {}));
 //# sourceMappingURL=omi.js.map
