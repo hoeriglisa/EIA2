@@ -473,6 +473,8 @@ namespace Abschlussaufgabe {
         winstatus = 1;
         winanimate();
         
+  
+        
     }
 
 
